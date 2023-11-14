@@ -12,7 +12,7 @@ const NavBar = () => {
         <li><a><FaRegUserCircle /> Member Login</a></li>
     </>
     return (
-        <div className="navbar shadow-xl py-4">
+        <div className="navbar shadow-xl py-4 px-6">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div className="drawer lg:hidden" style={{ zIndex: 10 }}>

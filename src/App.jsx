@@ -1,33 +1,19 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Outlet } from "react-router-dom"
+import NavBar from "./Components/NavBar/NavBar"
+
 
 function App() {
-  const [count, setCount] = useState(0)
+ 
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+ {/* <button className="relative overflow-hidden btn  border-indigo-500 group m-20">
+  <span className="relative z-10 transition-colors group-hover:text-white px-6 ">E Credit</span>
+  <span className="absolute inset-0 bg-indigo-500 transition-all duration-900 transform scale-x-0 origin-left group-hover:scale-x-50"></span>
+  <span className="absolute inset-0 bg-indigo-500 transition-all duration-900 transform scale-x-0 origin-right group-hover:scale-x-50"></span>
+</button> */}
+  <NavBar></NavBar>
+  <Outlet></Outlet>
     </>
   )
 }

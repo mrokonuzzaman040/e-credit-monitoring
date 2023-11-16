@@ -1,7 +1,7 @@
 import Marquee from "react-fast-marquee";
 const ThirdBanner = () => {
     return (
-        <div className="hero min-h-[30vh] bg-indigo-100">
+        <div className="hero min-h-[30vh] bg-indigo-100 p-10">
             <div className="hero-content text-center">
                 <div className="">
                     <h1 className="text-5xl font-semibold mb-4">Make sure your credit stays right-side-up with <span className="text-indigo-500">S</span>wipe<span className="text-indigo-500">D</span>efend Credit Monitoring.</h1>

@@ -2,7 +2,7 @@
 
 const InfoSection = () => {
     return (
-        <section className="items-center p-4 bg-gray-200 px-6 md:px-10 mx-auto flex flex-col md:flex-row justify-between gap-4 md:gap-11 text-black mt-20">
+        <section className="items-center p-4 bg-base-200 px-6 md:px-10 mx-auto flex flex-col md:flex-row justify-between gap-4 md:gap-11 text-black mt-20">
         <aside className="items-center grid-flow-col">
             <p className="w-full md:w-96 text-3xl">What You Need to Know:</p>
         </aside>

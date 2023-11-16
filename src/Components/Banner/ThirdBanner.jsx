@@ -4,7 +4,7 @@ const ThirdBanner = () => {
         <div className="hero min-h-[30vh] bg-indigo-100 p-10">
             <div className="hero-content text-center">
                 <div className="">
-                    <h1 className="text-5xl font-semibold mb-4">Make sure your credit stays right-side-up with <span className="text-indigo-500">S</span>wipe<span className="text-indigo-500">D</span>efend Credit Monitoring.</h1>
+                    <h1 className="text-3xl lg:text-5xl font-semibold mb-4">Make sure your credit stays right-side-up with <span className="text-indigo-500">S</span>wipe<span className="text-indigo-500">D</span>efend Credit Monitoring.</h1>
                     <Marquee speed={100}>
                     See your credit score now and stay on top of it with updates available daily !!!
                     </Marquee>

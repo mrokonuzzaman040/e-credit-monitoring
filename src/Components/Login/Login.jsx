@@ -1,0 +1,39 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+const Login = () => {
+    return (
+        <div>
+            <div className="hero min-h-screen bg-base-200">
+                <div className="hero-content flex-col lg:flex-row-reverse">
+                    <div className="card shrink-0 w-full max-w-2xl shadow-2xl bg-base-100">
+                        <form className="card-body w-4/3">
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">User Name</span>
+                                </label>
+                                <input type="email" required placeholder="email" className="input input-bordered" />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Password</span>
+                                </label>
+                                <input type="password" placeholder="password" className="input input-bordered" required />
+                                <label className="label">
+                                    <Link href="#" className="label-text-alt link link-hover">Forgot password?</Link>
+                                </label>
+
+                                <p className=''>By clicking login, I acknowledge that I have read and agree to the current <Link className='underline' to={'/'}>Terms of Service</Link> and <Link className='underline' to={'/'}>Privacy Policy</Link></p>
+                            </div>
+                            <div className="form-control mt-6">
+                                <button className="btn btn-primary">Login</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default Login;

@@ -3,13 +3,13 @@ import logo from '../../assets/Logo.png'
 import { FaRegUserCircle } from "react-icons/fa";
 const NavBar = () => {
     const links = <>
-        <li><a>Products</a></li>
-        <li><a>Resources</a></li>
-        <li><a>Services</a></li>
-        <li><a>Insights</a></li>
-        <li><a>Consumer Support</a></li>
-        <li><a>About</a></li>
-        <li><a><FaRegUserCircle /> Member Login</a></li>
+        <li><Link to={'/'}>Products</Link></li>
+        <li><Link to={'/'}>Resources</Link></li>
+        <li><Link to={'/'}>Services</Link></li>
+        <li><Link to={'/'}>Insights</Link></li>
+        <li><Link to={'/'}>Consumer Support</Link></li>
+        <li><Link to={'/'}>About</Link></li>
+        <li><Link to={'/login'}><FaRegUserCircle /> Member Login</Link></li>
     </>
     return (
         <div className="navbar shadow-xl py-4 px-6">

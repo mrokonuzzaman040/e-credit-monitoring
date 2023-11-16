@@ -41,7 +41,7 @@ const NavBar = () => {
             </div>
             <div className="navbar-end" style={{ zIndex: 1 }}>
                 <button className="relative overflow-hidden btn  border-indigo-500 group btn-sm">
-                    <span className="relative z-10 transition-colors group-hover:text-white px-6 ">Get Credit Monitoring</span>
+                    <Link to={'/register'} className="relative z-10 transition-colors group-hover:text-white px-6 ">Get Credit Monitoring</Link>
                     <span className="absolute inset-0 bg-indigo-500 transition-all duration-500 transform scale-x-0 origin-right group-hover:scale-x-100"></span>
                 </button>
             </div>

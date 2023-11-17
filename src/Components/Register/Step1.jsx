@@ -33,7 +33,7 @@ const Step1 = () => {
             zip
         }
 
-        
+        console.log(stepOneData);
     }
 
     return (

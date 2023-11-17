@@ -2,6 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.png';
 import { MdBlock } from 'react-icons/md';
+import useAxiosPublic from '../../hooks/useAxiosPublic';
+
+const axiosPublic = useAxiosPublic();
 
 const Step1 = () => {
 
@@ -32,8 +35,14 @@ const Step1 = () => {
             state,
             zip
         }
-
-        console.log(stepOneData);
+        // send the data to the database 
+        axiosPublic.post('/users', stepOneData)
+            .then(res => {
+                console.log(res);
+            })
+            .catch(err => {
+                console.log(err);
+            })
     }
 
     return (

@@ -11,6 +11,8 @@ import Home from './Components/Home/Home';
 import Login from './Components/Login/Login';
 import Register from './Components/Register/Register';
 import AuthProvider from './Provider/AuthProvider/AuthProvider';
+import Step2 from './Components/Register/Step2';
+import Step1 from './Components/Register/Step1';
 
 const router = createBrowserRouter([
   {
@@ -27,8 +29,14 @@ const router = createBrowserRouter([
       },
       {
         path: 'register',
-        element: <Register></Register>
-      }
+        element: <Register></Register>,
+        children: [
+          {
+            path: 'step1',
+            element: <Step1></Step1>
+          }
+        ]
+      },
     ]
   },
   {

@@ -1,10 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo.png';
 import { MdBlock } from 'react-icons/md';
 import useAxiosPublic from '../../hooks/useAxiosPublic';
 
 const axiosPublic = useAxiosPublic();
+const naviget = useNavigate();
 
 const Step1 = () => {
 
@@ -38,7 +39,9 @@ const Step1 = () => {
         // send the data to the database 
         axiosPublic.post('/users', stepOneData)
             .then(res => {
-                console.log(res);
+                if (response.data.insertedId) {
+                    naviget('/register/step2')
+                }
             })
             .catch(err => {
                 console.log(err);

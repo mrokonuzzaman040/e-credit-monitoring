@@ -3,7 +3,9 @@ import logo from '../../assets/Logo.png'
 import { FaRegUserCircle } from "react-icons/fa";
 const NavBar = () => {
     const links = <>
-        <li><Link to={'/'}>Products</Link></li>
+        <li>
+           <Link to={'/'}>Product</Link>
+        </li>
         <li><Link to={'/'}>Resources</Link></li>
         <li><Link to={'/'}>Services</Link></li>
         <li><Link to={'/'}>Insights</Link></li>
@@ -23,8 +25,9 @@ const NavBar = () => {
                         <div className="drawer-side">
                             <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
                             <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
-                                {links}
-
+                                {
+                                    links
+                                }
                             </ul>
                         </div>
                     </div>

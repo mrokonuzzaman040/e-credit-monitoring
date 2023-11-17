@@ -4,8 +4,8 @@ import logo from '../../assets/logo.png';
 import { MdBlock } from 'react-icons/md';
 import useAxiosPublic from '../../hooks/useAxiosPublic';
 
-const axiosPublic = useAxiosPublic();
-const naviget = useNavigate();
+// const axiosPublic = useAxiosPublic();
+// const naviget = useNavigate();
 
 const Step1 = () => {
 
@@ -37,15 +37,15 @@ const Step1 = () => {
             zip
         }
         // send the data to the database 
-        axiosPublic.post('/users', stepOneData)
-            .then(res => {
-                if (response.data.insertedId) {
-                    naviget('/register/step2')
-                }
-            })
-            .catch(err => {
-                console.log(err);
-            })
+        // axiosPublic.post('/users', stepOneData)
+        //     .then(res => {
+        //         if (response.data.insertedId) {
+        //             naviget('/register/step2')
+        //         }
+        //     })
+        //     .catch(err => {
+        //         console.log(err);
+        //     })
     }
 
     return (

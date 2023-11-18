@@ -28,7 +28,7 @@ const Footer = () => {
             </footer>
             <footer className="footer px-10 py-4 border-t bg-base-200 text-base-content border-base-300">
                 <aside className="items-center justify-center grid-flow-col">
-                    <Link><img className='h-[50px]' src={logo} alt="" /></Link>
+                    <Link><img className='h-12' src={logo} alt="" /></Link>
                     <p >SwipeDefend Ltd. <br />Providing reliable service since 1992</p>
                 </aside>
                 <nav className="md:place-self-center md:justify-self-end">

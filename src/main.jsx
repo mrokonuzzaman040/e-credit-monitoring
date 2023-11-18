@@ -12,6 +12,7 @@ import Login from './Components/Login/Login';
 import Register from './Components/Register/Register';
 import AuthProvider from './Provider/AuthProvider/AuthProvider';
 import Step2 from './Components/Register/Step2';
+import Step3 from './Components/Register/Step3';
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
         path: 'register/step2',
         element: <Step2></Step2>
       },
+      {
+        path: 'register/step3',
+        element: <Step3></Step3>
+      }
     ]
   },
   {

@@ -1,13 +1,9 @@
 import React from 'react';
-import { Link, Navigate, Outlet, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo.png';
 import { MdBlock } from 'react-icons/md';
-import Step1 from './Step1';
-import useAxiosPublic from '../../hooks/useAxiosPublic';
 
 const Register = () => {
-
-    const axiosPublic = useAxiosPublic();
     const navigate = useNavigate();
 
     const handelStep = (event) => {
@@ -38,7 +34,7 @@ const Register = () => {
             zip
         }
 
-        navigate('/register/step2', { stepOnedata: stepOneData });
+        navigate('/register/step2', { state: stepOneData });
 
         // axiosPublic.post('/users/step1', stepOneData)
         //     .then(res => {

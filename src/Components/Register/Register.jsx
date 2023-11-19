@@ -35,14 +35,6 @@ const Register = () => {
         }
 
         navigate('/register/step2', { state: stepOneData });
-
-        // axiosPublic.post('/users/step1', stepOneData)
-        //     .then(res => {
-        //         navigate('/register/step2');
-        //     })
-        //     .catch(err => {
-        //         console.log(err);
-        //     })
     }
     return (
         <div className="min-h-screen bg-gray-100 text-gray-900 flex justify-center">

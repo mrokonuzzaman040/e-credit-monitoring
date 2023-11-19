@@ -2,7 +2,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 import logo from '../../assets/logo.png';
 import { Link } from 'react-router-dom';
 
-import useAxiosPublic from '../../hooks/useAxiosPublic';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -12,7 +11,7 @@ const Step2 = () => {
     const stepOneData = location.state;
     const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z]).{6,}$/;
     const navigate = useNavigate();
-    const axiosPublic = useAxiosPublic();
+
 
     const handelStep = (e) => {
         e.preventDefault();
@@ -44,13 +43,7 @@ const Step2 = () => {
         } else if (!passwordRegex.test(confirm_password)) {
             toast.error('Password must contain at least one capital letter, one special character, and one number');
         } else {
-            axiosPublic.post('/users', stepTwoData)
-                .then(res => {
-                    navigate('/register/step3', { state: stepTwoData });
-                })
-                .catch(err => {
-                    console.log(err);
-                })
+            navigate('/register/step3', { state: stepTwoData });
         }
     }
     return (

@@ -57,13 +57,11 @@ const Step2 = () => {
             // Create user with email and password
             createUser(email, create_password)
                 .then(res => {
-                    console.log(res);
-                    toast.success('Registration successfull');
+                    navigate('/register/step3', { state: stepTwoData });
                 })
                 .catch(err => {
                     console.log(err);
                 })
-            navigate('/register/step3', { state: stepTwoData });
         }
     }
     return (
@@ -125,13 +123,13 @@ const Step2 = () => {
                                         <div className="gap-4 grid grid-cols-1">
                                             <div className="mt-4">
                                                 <label className="block text-gray-700  mb-1">Credit Card Number for Monthly Payment<span className='text-red-500'>*</span></label>
-                                                <input required type="text" name="card_number" className="w-full rounded-lg border py-2 px-3" />
+                                                <input placeholder="Card Number" required type="text" name="card_number" className="w-full rounded-lg border py-2 px-3" />
                                             </div>
 
                                             <div className="mt-4 grid grid-cols-2 items-center">
                                                 <label className="block text-gray-700  mb-1">Security Code
                                                     <span className='text-red-500'>*</span></label>
-                                                <input required max={4} type="text" name="cvc" className="w-full rounded-lg border py-2 px-3" />
+                                                <input placeholder="CVC Number" required type="text" name="cvc" className="w-full rounded-lg border py-2 px-3" />
                                             </div>
 
                                             <div className="grid grid-cols-1 gap-4 mt-4">

@@ -87,7 +87,7 @@ const Register = () => {
                                             <p className='font-normal text-sm'>By providing the last 4  digits of my SSN, I understand that TransUnion will retrieve my full SSN to deliver products that I input requiredrequest on this website.</p>
                                             <div className="grid grid-cols-2 justify-items-end">
                                                 <label className="block text-gray-700  mb-1"><FcLock className='text-4xl' /></label>
-                                                <input max={4} required type="number" name="ssn" className="w-full rounded-lg border py-2 px-3" />
+                                                <input maxLength={4} required type="number" name="ssn" className="w-full rounded-lg border py-2 px-3" />
                                             </div>
                                         </div>
 

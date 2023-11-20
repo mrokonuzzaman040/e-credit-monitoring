@@ -37,7 +37,7 @@ const Step3 = () => {
             toast.success('Registration successfull');
             axiosPublic.post('/users', finalData)
                 .then(res => {
-                    navigate('/register/step2');
+                    navigate('/dashboard');
                 })
                 .catch(err => {
                     console.log(err);

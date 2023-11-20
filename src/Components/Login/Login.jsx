@@ -1,27 +1,37 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo.png';
 import Swal from 'sweetalert2';
-const Login = () => {
+import { AuthContext } from '../../Provider/AuthProvider/AuthProvider';
 
-    const handellogin = () => {
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'success',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Login'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                Swal.fire(
-                    'Login!',
-                    'Your file has been deleted.',
-                    'success'
-                )
-            }
-        })
+
+const Login = () => {
+    const { signIn } = useContext(AuthContext);
+    const navigate = useNavigate();
+
+    const handellogin = (event) => {
+        event.preventDefault();
+        const form = event.target;
+
+        const email = form.email.value;
+        const pass_word = form.pass_word.value;
+
+        signIn(email, pass_word)
+            .then(res => {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Login Successfull',
+                    text: 'You can use this email and password to login',
+                    navigate: navigate('/dashboard')
+                })
+            })
+            .catch(error => {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: error.message,
+                })
+            })
     }
 
     return (
@@ -41,10 +51,10 @@ const Login = () => {
                                 <form onSubmit={handellogin}>
                                     <input
                                         className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
-                                        type="email" placeholder="Email" />
+                                        type="email" placeholder="Email" name='email' />
                                     <input
                                         className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
-                                        type="password" placeholder="Password" />
+                                        type="password" placeholder="Password" name='pass_word' />
                                     <button
                                         className="mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
                                         <svg className="w-6 h-6 -ml-2" fill="none" stroke="currentColor" stroke-width="2"
@@ -59,7 +69,7 @@ const Login = () => {
                                     </button>
                                 </form>
                                 <p className="mt-6 text-xs text-gray-600 text-center">
-                                    I agree to abide by templatana's 
+                                    I agree to abide by templatana's
                                     <Link to={'/'} className="border-b border-gray-500 border-dotted">
                                         Terms of Service
                                     </Link>

@@ -13,6 +13,7 @@ import Register from './Components/Register/Register';
 import AuthProvider from './Provider/AuthProvider/AuthProvider';
 import Step2 from './Components/Register/Step2';
 import Step3 from './Components/Register/Step3';
+import Dashboard from './LayOut/Dashboard/Dashboard';
 
 const router = createBrowserRouter([
   {
@@ -43,7 +44,13 @@ const router = createBrowserRouter([
   },
   {
     path: "dashboard",
-    element: <h2>Dashboard</h2>,
+    element: <Dashboard></Dashboard>,
+    children: [
+      {
+        path: 'dashboard',
+        element: <h2>Dashboard</h2>
+      },
+    ]
   }
 ]);
 ReactDOM.createRoot(document.getElementById('root')).render(

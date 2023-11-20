@@ -15,14 +15,18 @@ const Step2 = () => {
     const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z]).{6,}$/;
     const navigate = useNavigate();
 
+
     useEffect(() => {
         if (stepOneData === null) {
             navigate('/register')
         }
     }, [location]);
 
-    const { createUser } = useContext(AuthContext)
+    const { createUser, updateUserProfile } = useContext(AuthContext)
     const email = stepOneData.email;
+
+
+    const displayName = stepOneData.first_name + ' ' + stepOneData.last_name;
 
     const handelStep = (e) => {
         e.preventDefault();
@@ -57,6 +61,7 @@ const Step2 = () => {
             // Create user with email and password
             createUser(email, create_password)
                 .then(res => {
+                    updateUserProfile(displayName)
                     navigate('/register/step3', { state: stepTwoData });
                 })
                 .catch(err => {

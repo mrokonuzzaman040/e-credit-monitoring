@@ -1,15 +1,23 @@
-import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo.png';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import useAxiosPublic from '../../hooks/useAxiosPublic';
 
 const Step3 = () => {
+    const navigate = useNavigate();
     const location = useLocation();
     const alldata = location.state;
-
     const axiosPublic = useAxiosPublic();
+
+
+    useEffect(() => {
+        if (alldata === null) {
+            navigate('/register')
+        }
+    }, [location]);
+
 
     const handelSubmit = (e) => {
         e.preventDefault();

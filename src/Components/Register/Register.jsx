@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo.png';
-import { MdBlock } from 'react-icons/md';
+import { FcLock } from "react-icons/fc";
+
 
 const Register = () => {
     const navigate = useNavigate();
     const location = useLocation();
+
+    useEffect(() => {
+        if (location.state === undefined) {
+            navigate('/register')
+        }
+    }, [location]);
 
     const handelStep = (event) => {
         event.preventDefault();
@@ -78,9 +85,9 @@ const Register = () => {
                                         <div className="mt-4">
                                             <h2 className='font-normal text-lg'>Last 4 Digits of Social Security Number <span className='text-red-500'>*</span></h2>
                                             <p className='font-normal text-sm'>By providing the last 4  digits of my SSN, I understand that TransUnion will retrieve my full SSN to deliver products that I input requiredrequest on this website.</p>
-                                            <div className="grid grid-cols-2 justify-center">
-                                                <label className="block text-gray-700  mb-1"><MdBlock /></label>
-                                                <input required type="number" name="ssn" className="w-full rounded-lg border py-2 px-3" />
+                                            <div className="grid grid-cols-2 justify-items-end">
+                                                <label className="block text-gray-700  mb-1"><FcLock className='text-4xl' /></label>
+                                                <input max={4} required type="number" name="ssn" className="w-full rounded-lg border py-2 px-3" />
                                             </div>
                                         </div>
 

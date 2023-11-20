@@ -1,6 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import logo from '../../assets/logo.png';
 import { Link } from 'react-router-dom';
+import { useEffect } from "react";
 
 
 import { ToastContainer, toast } from 'react-toastify';
@@ -14,11 +15,14 @@ const Step2 = () => {
     const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z]).{6,}$/;
     const navigate = useNavigate();
 
-    const { createUser } = useContext(AuthContext)
+    useEffect(() => {
+        if (stepOneData === null) {
+            navigate('/register')
+        }
+    }, [location]);
 
-    if (!stepOneData) {
-        navigate('/register');
-    }
+    const { createUser } = useContext(AuthContext)
+    const email = stepOneData.email;
 
     const handelStep = (e) => {
         e.preventDefault();
@@ -84,7 +88,7 @@ const Step2 = () => {
                                         <div className="grid grid-cols-1 gap-4">
                                             <div>
                                                 <label className="block text-gray-700  mb-1">Email <span className='text-red-500'>*</span></label>
-                                                <input required type="text" name="email" className="w-full rounded-lg border py-2 px-3" />
+                                                <input defaultValue={email} disabled required type="text" name="email" className="w-full rounded-lg border py-2 px-3" />
                                             </div>
                                         </div>
 

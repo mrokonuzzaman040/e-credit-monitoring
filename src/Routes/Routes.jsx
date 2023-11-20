@@ -12,6 +12,9 @@ import Dashboard from '../LayOut/Dashboard/Dashboard';
 import App from "../App";
 import PrivateRoute from "./PrivateRoute";
 import ErrorPage from "../Components/ErrorPage/ErrorPage";
+import AdminHome from "../LayOut/Dashboard/Components/AdminHome";
+import AdminRoute from "./AdminRoute";
+import AllUsers from "../LayOut/Dashboard/Components/AllUsers";
 
 export const router = createBrowserRouter([
     {
@@ -53,6 +56,15 @@ export const router = createBrowserRouter([
                 path: 'dashboard',
                 element: <h2>Dashboard</h2>
             },
+            // Admin Routs
+            {
+                path: 'adminHome',
+                element: <AdminRoute><AdminHome></AdminHome></AdminRoute>,
+            },
+            {
+                path: 'allUsers',
+                element: <AdminRoute><AllUsers></AllUsers></AdminRoute>,
+            }
         ]
     }
 ]);

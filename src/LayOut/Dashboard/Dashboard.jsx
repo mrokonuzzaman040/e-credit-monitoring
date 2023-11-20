@@ -97,7 +97,7 @@ const Dashboard = () => {
 
                     <li>
                         {/* Logout */}
-                        <button onClick={handleLogOut} className="btn btn-red">Logout</button>
+                        <button onClick={handleLogOut} className="btn btn-red text-center items-center">Logout</button>
                     </li>
                 </ul>
             </div>

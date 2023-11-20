@@ -11,6 +11,7 @@ import Step3 from '../Components/Register/Step3';
 import Dashboard from '../LayOut/Dashboard/Dashboard';
 import App from "../App";
 import PrivateRoute from "./PrivateRoute";
+import ErrorPage from "../Components/ErrorPage/ErrorPage";
 
 export const router = createBrowserRouter([
     {
@@ -36,6 +37,11 @@ export const router = createBrowserRouter([
             {
                 path: 'register/step3',
                 element: <Step3></Step3>
+            },
+            {
+                // error page
+                path: '*',
+                element: <ErrorPage></ErrorPage>,
             }
         ]
     },

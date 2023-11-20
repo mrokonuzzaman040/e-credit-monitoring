@@ -10,6 +10,7 @@ import Step2 from '../Components/Register/Step2';
 import Step3 from '../Components/Register/Step3';
 import Dashboard from '../LayOut/Dashboard/Dashboard';
 import App from "../App";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
     {
@@ -40,7 +41,7 @@ export const router = createBrowserRouter([
     },
     {
         path: "dashboard",
-        element: <Dashboard></Dashboard>,
+        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
         children: [
             {
                 path: 'dashboard',

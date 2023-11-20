@@ -1,10 +1,19 @@
 import { NavLink, Outlet } from "react-router-dom";
 import { FaAd, FaBook, FaCalendar, FaEnvelope, FaHome, FaList, FaSearch, FaShoppingCart, FaUsers, FaUtensils } from "react-icons/fa";
 import useAdmin from "../../hooks/useAdmin";
+import useAuth from "../../hooks/useAuth";
 
 const Dashboard = () => {
 
+    const { user, logOut } = useAuth();
     const [isAdmin] = useAdmin();
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.log(error));
+    }
+
 
     return (
         <div className="flex">
@@ -84,6 +93,11 @@ const Dashboard = () => {
                         <NavLink to="/order/contact">
                             <FaEnvelope></FaEnvelope>
                             Contact</NavLink>
+                    </li>
+
+                    <li>
+                        {/* Logout */}
+                        <button onClick={handleLogOut} className="btn btn-red">Logout</button>
                     </li>
                 </ul>
             </div>

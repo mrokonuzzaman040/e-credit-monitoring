@@ -4,7 +4,7 @@ import useAdmin from "../../hooks/useAdmin";
 
 const Dashboard = () => {
 
-    // const [isAdmin] = useAdmin();
+    const [isAdmin] = useAdmin();
 
     return (
         <div className="flex">
@@ -12,34 +12,34 @@ const Dashboard = () => {
             <div className="w-64 min-h-screen bg-orange-400">
                 <ul className="menu p-4">
                     {
-                        // isAdmin ? <>
-                        //     <li>
-                        //         <NavLink to="/dashboard/adminHome">
-                        //             <FaHome></FaHome>
-                        //             Admin Home</NavLink>
-                        //     </li>
-                        //     <li>
-                        //         <NavLink to="/dashboard/addItems">
-                        //             <FaUtensils></FaUtensils>
-                        //             Add Items</NavLink>
-                        //     </li>
-                        //     <li>
-                        //         <NavLink to="/dashboard/manageItems">
-                        //             <FaList></FaList>
-                        //             Manage Items</NavLink>
-                        //     </li>
-                        //     <li>
-                        //         <NavLink to="/dashboard/bookings">
-                        //             <FaBook></FaBook>
-                        //             Manage Bookings</NavLink>
-                        //     </li>
-                        //     <li>
-                        //         <NavLink to="/dashboard/users">
-                        //             <FaUsers></FaUsers>
-                        //             All Users</NavLink>
-                        //     </li>
-                        // </>
-                        //     :
+                        isAdmin ? <>
+                            <li>
+                                <NavLink to="/dashboard/adminHome">
+                                    <FaHome></FaHome>
+                                    Admin Home</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/dashboard/addItems">
+                                    <FaUtensils></FaUtensils>
+                                    Add Items</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/dashboard/manageItems">
+                                    <FaList></FaList>
+                                    Manage Items</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/dashboard/bookings">
+                                    <FaBook></FaBook>
+                                    Manage Bookings</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/dashboard/users">
+                                    <FaUsers></FaUsers>
+                                    All Users</NavLink>
+                            </li>
+                        </>
+                            :
                             <>
                                 <li>
                                     <NavLink to="/dashboard/userHome">

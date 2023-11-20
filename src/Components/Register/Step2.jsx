@@ -60,7 +60,7 @@ const Step2 = () => {
                     navigate('/register/step3', { state: stepTwoData });
                 })
                 .catch(err => {
-                    console.log(err);
+                    toast.error("Your email already exist");
                 })
         }
     }

@@ -1,17 +1,19 @@
 import { Link } from 'react-router-dom';
 import logo from '../../assets/Logo.png'
 import { FaRegUserCircle } from "react-icons/fa";
+import useAuth from '../../hooks/useAuth';
 const NavBar = () => {
+    const { user } = useAuth();
     const links = <>
         <li>
-           <Link to={'/'}>Product</Link>
+            <Link to={'/'}>Product</Link>
         </li>
         <li><Link to={'/'}>Resources</Link></li>
         <li><Link to={'/'}>Services</Link></li>
         <li><Link to={'/'}>Insights</Link></li>
         <li><Link to={'/'}>Consumer Support</Link></li>
         <li><Link to={'/'}>About</Link></li>
-        <li><Link to={'/login'}><FaRegUserCircle /> Member Login</Link></li>
+        <li>{user ? <Link to={'/dashboard'}><FaRegUserCircle /> Dashboard</Link> : <Link to={'/login'}><FaRegUserCircle /> Member Login</Link>}</li>
     </>
     return (
         <div className="navbar shadow-xl py-4 px-6">
@@ -43,10 +45,14 @@ const NavBar = () => {
                 </ul>
             </div>
             <div className="navbar-end" style={{ zIndex: 1 }}>
-                <button className="relative overflow-hidden btn  border-indigo-500 group btn-sm">
-                    <Link to={'/register'} className="relative z-10 transition-colors group-hover:text-white px-6 ">Get Credit Monitoring</Link>
-                    <span className="absolute inset-0 bg-indigo-500 transition-all duration-500 transform scale-x-0 origin-right group-hover:scale-x-100"></span>
-                </button>
+                {
+                    user ? <></> :
+                        <button className="relative overflow-hidden btn  border-indigo-500 group btn-sm">
+                            <Link to={'/register'} className="relative z-10 transition-colors group-hover:text-white px-6 ">Get Credit Monitoring</Link>
+
+                            <span className="absolute inset-0 bg-indigo-500 transition-all duration-500 transform scale-x-0 origin-right group-hover:scale-x-100"></span>
+                        </button>
+                }
             </div>
         </div>
     );

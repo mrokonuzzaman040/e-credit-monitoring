@@ -1,10 +1,11 @@
 import React from 'react';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo.png';
 import { MdBlock } from 'react-icons/md';
 
 const Register = () => {
     const navigate = useNavigate();
+    const location = useLocation();
 
     const handelStep = (event) => {
         event.preventDefault();
@@ -33,7 +34,6 @@ const Register = () => {
             state,
             zip
         }
-
         navigate('/register/step2', { state: stepOneData });
     }
     return (

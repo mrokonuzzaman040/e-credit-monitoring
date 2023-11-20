@@ -47,7 +47,7 @@ const Step3 = () => {
                     </div>
                     <div className="mt-12 flex flex-col items-center justify-center">
                         <h1 className="text-2xl xl:text-3xl font-extrabold">
-                            Step - 2
+                            Step - 3
                         </h1>
                         <div className="w-full flex-1 mt-8">
                             <div className="mx-auto max-w-xs">

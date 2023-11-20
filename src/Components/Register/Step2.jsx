@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 
 const Step2 = () => {
     const location = useLocation();
@@ -12,6 +14,11 @@ const Step2 = () => {
     const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z]).{6,}$/;
     const navigate = useNavigate();
 
+    const { createUser } = useContext(AuthContext)
+
+    if (!stepOneData) {
+        navigate('/register');
+    }
 
     const handelStep = (e) => {
         e.preventDefault();
@@ -43,6 +50,15 @@ const Step2 = () => {
         } else if (!passwordRegex.test(confirm_password)) {
             toast.error('Password must contain at least one capital letter, one special character, and one number');
         } else {
+            // Create user with email and password
+            createUser(email, create_password)
+                .then(res => {
+                    console.log(res);
+                    toast.success('Registration successfull');
+                })
+                .catch(err => {
+                    console.log(err);
+                })
             navigate('/register/step3', { state: stepTwoData });
         }
     }

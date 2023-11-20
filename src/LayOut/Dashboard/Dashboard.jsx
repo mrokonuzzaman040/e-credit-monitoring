@@ -5,7 +5,7 @@ import useAuth from "../../hooks/useAuth";
 
 const Dashboard = () => {
 
-    const { user, logOut } = useAuth();
+    const { logOut } = useAuth();
     const [isAdmin] = useAdmin();
 
     const handleLogOut = () => {

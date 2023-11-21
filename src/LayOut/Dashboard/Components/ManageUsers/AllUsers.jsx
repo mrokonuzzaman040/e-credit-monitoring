@@ -72,7 +72,7 @@ const AllUsers = () => {
                     {/* head */}
                     <thead>
                         <tr>
-                            <th></th>
+                            <th>SL</th>
                             <th>Name</th>
                             <th>Email</th>
                             <th>Role</th>
@@ -83,7 +83,7 @@ const AllUsers = () => {
                         {
                             users.map((user, index) => <tr key={user._id}>
                                 <th>{index + 1}</th>
-                                <td>{user.name}</td>
+                                <td>{user.first_name}</td>
                                 <td>{user.email}</td>
                                 <td>
                                     {user.role === 'admin' ? 'Admin' : <button

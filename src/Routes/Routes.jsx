@@ -18,6 +18,9 @@ import AdminRoute from "../Routes/AdminRoute";
 import AdminHome from "../LayOut/Dashboard/Components/AdminHome";
 import AllUsers from "../LayOut/Dashboard/Components/ManageUsers/AllUsers";
 import App from "../App";
+import AddReview from "../LayOut/Dashboard/Components/Review/AddReview";
+import ManageReview from "../LayOut/Dashboard/Components/Review/ManageReview";
+import UsersInfo from "../LayOut/Dashboard/Components/UsersInfo/UsersInfo";
 
 export const router = createBrowserRouter([
     {
@@ -67,6 +70,18 @@ export const router = createBrowserRouter([
             {
                 path: 'allUsers',
                 element: <AdminRoute><AllUsers></AllUsers></AdminRoute>,
+            },
+            {
+                path: 'addReviews',
+                element: <AdminRoute><AddReview></AddReview></AdminRoute>,
+            },
+            {
+                path: 'manageReviews',
+                element: <AdminRoute><ManageReview></ManageReview></AdminRoute>,
+            },
+            {
+                path: 'userInfos',
+                element: <AdminRoute><UsersInfo></UsersInfo></AdminRoute>,
             }
         ]
     }

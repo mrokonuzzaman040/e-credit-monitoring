@@ -1,111 +1,157 @@
-import { NavLink, Outlet } from "react-router-dom";
-import { FaAd, FaBook, FaCalendar, FaEnvelope, FaHome, FaList, FaSearch, FaShoppingCart, FaUsers, FaUtensils } from "react-icons/fa";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import useAdmin from "../../hooks/useAdmin";
 import useAuth from "../../hooks/useAuth";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { useEffect } from "react";
+import { useState } from "react";
+
+// Icons
+import { FaAlignLeft, FaRegUser, FaCalendar, FaEnvelope, FaHome, FaList, FaSearch, FaShoppingCart, FaUsers, FaUtensils, FaAd } from "react-icons/fa";
+import { MdReviews, MdAddBox, MdOutlinePersonPin } from "react-icons/md";
+
 
 const Dashboard = () => {
-
+    const { user } = useAuth();
     const { logOut } = useAuth();
     const [isAdmin] = useAdmin();
-
+    const [userData, setUserData] = useState({});
     const handleLogOut = () => {
         logOut()
             .then(() => { })
             .catch(error => console.log(error));
     }
 
+    const axiosSecure = useAxiosSecure();
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axiosSecure.get(`singleuser/${user.email}`);
+                setUserData(response.data);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+
+        fetchData();
+    }, [axiosSecure, user.email]);
     return (
-        <div className="flex">
-            {/* dashboard side bar */}
-            <div className="w-64 min-h-screen bg-indigo-500">
-                <ul className="menu p-4">
-                    {
-                        isAdmin ? <>
-                            <li>
-                                <NavLink to="/dashboard/adminHome">
-                                    <FaHome></FaHome>
-                                    Admin Home</NavLink>
-                            </li>
-                            <li>
-                                <NavLink to="/dashboard/addItems">
-                                    <FaUtensils></FaUtensils>
-                                    Add Items</NavLink>
-                            </li>
-                            <li>
-                                <NavLink to="/dashboard/manageItems">
-                                    <FaList></FaList>
-                                    Manage Items</NavLink>
-                            </li>
-                            <li>
-                                <NavLink to="/dashboard/bookings">
-                                    <FaBook></FaBook>
-                                    Manage Bookings</NavLink>
-                            </li>
-                            <li>
-                                <NavLink to="/dashboard/allUsers">
-                                    <FaUsers></FaUsers>
-                                    All Users</NavLink>
-                            </li>
-                        </>
-                            :
-                            <>
+        <div className="drawer lg:drawer-open">
+            <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+            <div className="drawer-content flex flex-col p-10">
+                <div className="flex justify-between items-center bg-indigo-300 p-4 rounded-lg">
+                    <div className="lg:text-center">
+                        <h2 className="text-2xl">Welcome to Dashboard, {userData.first_name}</h2>
+                    </div>
+                    <div className="lg:hidden">
+                        <label htmlFor="my-drawer-2" className="btn items-center justify-center btn-square btn-primary drawer-button"><FaAlignLeft ></FaAlignLeft></label>
+                    </div>
+                </div>
+                <div className="mt-4 bg-indigo-300 min-h-full rounded-xl p-4">
+                    <Outlet></Outlet>
+                </div>
+
+            </div>
+            <div className="drawer-side">
+                <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
+                <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
+                    {/* admin nav links */}
+                    <div className="">
+                        {
+                            isAdmin ? <>
                                 <li>
-                                    <NavLink to="/dashboard/userHome">
+                                    <NavLink to="/dashboard/adminHome">
                                         <FaHome></FaHome>
-                                        User Home</NavLink>
+                                        Admin Home</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to="/dashboard/history">
-                                        <FaCalendar></FaCalendar>
-                                        Not History</NavLink>
+                                    <NavLink to="/dashboard/addReviews">
+                                        <MdAddBox></MdAddBox >
+                                        Add Review</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to="/dashboard/cart">
-                                        <FaShoppingCart></FaShoppingCart>
-                                        My Cart ()</NavLink>
+                                    <NavLink to="/dashboard/manageReviews">
+                                        <MdReviews></MdReviews>
+                                        Manage Reviews</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to="/dashboard/review">
-                                        <FaAd></FaAd>
-                                        Add a Review</NavLink>
+                                    <NavLink to="/dashboard/userInfos">
+                                        <FaRegUser></FaRegUser>
+                                        Users Info</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to="/dashboard/paymentHistory">
-                                        <FaList></FaList>
-                                        Real Payment History</NavLink>
+                                    <NavLink to="/dashboard/allUsers">
+                                        <FaUsers></FaUsers>
+                                        All Users</NavLink>
                                 </li>
+
                             </>
-                    }
+                                :
+                                <>
+                                    <li>
+                                        <NavLink to="/dashboard/userHome">
+                                            <FaHome></FaHome>
+                                            User Home</NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink to="/dashboard/history">
+                                            <FaCalendar></FaCalendar>
+                                            Not History</NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink to="/dashboard/cart">
+                                            <FaShoppingCart></FaShoppingCart>
+                                            My Cart ()</NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink to="/dashboard/review">
+                                            <FaAd></FaAd>
+                                            Add a Review</NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink to="/dashboard/paymentHistory">
+                                            <FaList></FaList>
+                                            Real Payment History</NavLink>
+                                    </li>
+                                </>
+                        }
+                    </div>
                     {/* shared nav links */}
                     <div className="divider"></div>
-                    <li>
-                        <NavLink to="/">
-                            <FaHome></FaHome>
-                            Home</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/order/salad">
-                            <FaSearch></FaSearch>
-                            Menu</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/order/contact">
-                            <FaEnvelope></FaEnvelope>
-                            Contact</NavLink>
-                    </li>
+                    <div className="grid grid-cols-1 justify-between">
+                        <div className="">
+                            <li>
+                                <NavLink to="/">
+                                    <FaHome></FaHome>
+                                    Home</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/order/salad">
+                                    <FaSearch></FaSearch>
+                                    Menu</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/order/contact">
+                                    <FaEnvelope></FaEnvelope>
+                                    Contact</NavLink>
+                            </li>
+                        </div>
 
-                    <li>
-                        {/* Logout */}
-                        <button onClick={handleLogOut} className="btn btn-red text-center items-center">Logout</button>
-                    </li>
+                        <div className="">
+                            <li>
+                                <NavLink to="/dashboard/profile">
+                                    <MdOutlinePersonPin></MdOutlinePersonPin>
+                                    Profile</NavLink>
+                            </li>
+                            <li>
+                                <Link to={'#'}>
+                                    <button onClick={handleLogOut} >Logout</button>
+                                </Link>
+                            </li>
+                        </div>
+                    </div>
+
                 </ul>
-            </div>
-            {/* dashboard content */}
-            <div className="flex-1 p-8">
-                <div className="">
-                    <h1 className="text-3xl">Dashboard</h1>
-                </div>
-                <Outlet></Outlet>
+
             </div>
         </div>
     );

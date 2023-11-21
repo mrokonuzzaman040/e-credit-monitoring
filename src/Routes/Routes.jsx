@@ -3,18 +3,21 @@ import {
     RouterProvider,
 } from "react-router-dom";
 
-import Home from '../Components/Home/Home';
-import Login from '../Components/Login/Login';
-import Register from '../Components/Register/Register';
-import Step2 from '../Components/Register/Step2';
-import Step3 from '../Components/Register/Step3';
-import Dashboard from '../LayOut/Dashboard/Dashboard';
-import App from "../App";
-import PrivateRoute from "./PrivateRoute";
+
+import Home from "../LayOut/Home/Home/Home";
+import Login from "../Components/Login/Login";
+import Register from "../Components/Register/Register";
+import Step2 from "../Components/Register/Step2";
+import Step3 from "../Components/Register/Step3";
 import ErrorPage from "../Components/ErrorPage/ErrorPage";
+import Dashboard from "../LayOut/Dashboard/Dashboard";
+
+import PrivateRoute from "../Routes/PrivateRoute";
+import AdminRoute from "../Routes/AdminRoute";
+
 import AdminHome from "../LayOut/Dashboard/Components/AdminHome";
-import AdminRoute from "./AdminRoute";
-import AllUsers from "../LayOut/Dashboard/Components/AllUsers";
+import AllUsers from "../LayOut/Dashboard/Components/ManageUsers/AllUsers";
+import App from "../App";
 
 export const router = createBrowserRouter([
     {

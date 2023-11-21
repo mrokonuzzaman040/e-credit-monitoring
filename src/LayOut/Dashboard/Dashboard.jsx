@@ -14,7 +14,6 @@ const Dashboard = () => {
             .catch(error => console.log(error));
     }
 
-
     return (
         <div className="flex">
             {/* dashboard side bar */}
@@ -103,6 +102,9 @@ const Dashboard = () => {
             </div>
             {/* dashboard content */}
             <div className="flex-1 p-8">
+                <div className="">
+                    <h1 className="text-3xl">Dashboard</h1>
+                </div>
                 <Outlet></Outlet>
             </div>
         </div>

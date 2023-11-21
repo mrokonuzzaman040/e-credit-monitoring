@@ -1,7 +1,7 @@
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 AOS.init();
-import bannerImg from '../../assets/b-2.png'
+import bannerImg from '../../../assets/b-2.png'
 const Banner = () => {
     return (
         <div className="hero min-h-[80vh] max-w-7xl mx-auto mb-8">

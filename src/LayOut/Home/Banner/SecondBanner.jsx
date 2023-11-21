@@ -1,5 +1,5 @@
 import Lottie from 'lottie-react';
-import anim from '../../assets/anim.json'
+import anim from '../../../assets/anim.json'
 
 const SecondBanner = () => {
     return (

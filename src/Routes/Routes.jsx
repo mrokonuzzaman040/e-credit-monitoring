@@ -21,6 +21,7 @@ import App from "../App";
 import AddReview from "../LayOut/Dashboard/Components/Review/AddReview";
 import ManageReview from "../LayOut/Dashboard/Components/Review/ManageReview";
 import UsersInfo from "../LayOut/Dashboard/Components/UsersInfo/UsersInfo";
+import EditReview from "../LayOut/Dashboard/Components/Review/EditReview";
 
 export const router = createBrowserRouter([
     {
@@ -80,9 +81,13 @@ export const router = createBrowserRouter([
                 element: <AdminRoute><ManageReview></ManageReview></AdminRoute>,
             },
             {
+                path: 'editReviews:id',
+                element: <EditReview></EditReview>
+            },
+            {
                 path: 'userInfos',
                 element: <AdminRoute><UsersInfo></UsersInfo></AdminRoute>,
-            }
+            },
         ]
     }
 ]);

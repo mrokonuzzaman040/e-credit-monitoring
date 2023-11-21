@@ -34,7 +34,7 @@ const ManageReview = () => {
                                     <td>{review.details}</td>
                                     <td>{review.rating}</td>
                                     <td>
-                                        <button className="btn btn-danger">Edit</button>
+                                        <button className='btn'>Edit</button>
                                     </td>
                                 </tr>
                             )

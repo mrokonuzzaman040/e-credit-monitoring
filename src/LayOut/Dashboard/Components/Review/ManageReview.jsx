@@ -34,7 +34,11 @@ const ManageReview = () => {
                                     <td>{review.details}</td>
                                     <td>{review.rating}</td>
                                     <td>
+<<<<<<< HEAD
                                         <button className='btn'>Edit</button>
+=======
+                                        <button className="btn btn-danger">Edit</button>
+>>>>>>> f1da6f482d007356730be8c4f2c3d5c72742bed7
                                     </td>
                                 </tr>
                             )

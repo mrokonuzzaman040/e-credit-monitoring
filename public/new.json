@@ -1,0 +1,25 @@
+{
+    "_id": {
+        "$oid": "655ba1e2ef1ffc52e170f439"
+    },
+    "first_name": "Md Rokon",
+    "last_name": "Uzzaman",
+    "dob": "1995-01-01",
+    "ssn": "1236",
+    "email": "rjrupom221@gmail.com",
+    "phone": "01610830286",
+    "address": "Mirpur-11, Dhaka",
+    "city": "Dhaka",
+    "state": "Mirpur",
+    "zip": "1216",
+    "create_password": "Rupom.1223@#",
+    "confirm_password": "Rupom.1223@#",
+    "seq": "What is your Name?",
+    "seq_answer": "Rokon",
+    "card_number": "1236123612361236",
+    "cvc": "1236",
+    "exdate": "0024-06",
+    "ssn_create": "12456",
+    "ssn_confirm": "12456",
+    "role": "admin"
+}

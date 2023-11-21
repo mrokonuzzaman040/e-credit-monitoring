@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 
 // Icons
-import { FaAlignLeft, FaRegUser, FaCalendar, FaEnvelope, FaHome, FaList, FaSearch, FaShoppingCart, FaUsers, FaUtensils, FaAd } from "react-icons/fa";
+import { FaAlignLeft, FaRegUser, FaCalendar, FaEnvelope, FaHome, FaList, FaSearch, FaShoppingCart, FaUsers, FaAd } from "react-icons/fa";
 import { MdReviews, MdAddBox, MdOutlinePersonPin } from "react-icons/md";
 
 

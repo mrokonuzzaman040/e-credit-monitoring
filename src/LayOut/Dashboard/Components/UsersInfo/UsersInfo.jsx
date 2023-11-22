@@ -24,7 +24,7 @@ const UsersInfo = () => {
                         <div className="collapse-title text-xl font-medium">
                             {user.first_name} {user.last_name}
                         </div>
-                        <div className="collapse-content grid grid-cols-2 bg-slate-400 text-black p-4">
+                        <div className="collapse-content grid grid-cols-2 gap-4 bg-slate-400 text-black p-4">
                             <div className="">
                                 <h2 className='text-center mb-3 underline'>Address Info</h2>
                                 <div className="">
@@ -61,7 +61,6 @@ const UsersInfo = () => {
                                 </div>
                             </div>
                         </div>
-
                     </div>)
             }
         </div>

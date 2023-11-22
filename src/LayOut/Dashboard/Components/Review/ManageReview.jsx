@@ -23,7 +23,7 @@ const ManageReview = () => {
                         <th scope="col">Name</th>
                         <th scope="col">Review</th>
                         <th scope="col">Rating</th>
-                        <th scope="col">Action</th>
+                    <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>

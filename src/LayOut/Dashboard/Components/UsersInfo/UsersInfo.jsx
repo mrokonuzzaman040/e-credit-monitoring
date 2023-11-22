@@ -19,7 +19,7 @@ const UsersInfo = () => {
         <div>
             {
                 users.map(user =>
-                    <div className="collapse collapse-arrow join-item border bg-slate-50 border-base-300">
+                    <div key={user.id} className="collapse collapse-arrow join-item border bg-slate-50 border-base-300">
                         <input type="radio" name="my-accordion-1" />
                         <div className="collapse-title text-xl font-medium">
                             {user.first_name} {user.last_name}

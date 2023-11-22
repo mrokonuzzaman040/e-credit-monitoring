@@ -84,6 +84,10 @@ export const router = createBrowserRouter([
                 element: <AdminRoute><ManageReview></ManageReview></AdminRoute>,
             },
             {
+                path: 'editReviews/:id',
+                element: <AdminRoute><EditReview></EditReview></AdminRoute>,
+            },
+            {
                 path: 'userInfos',
                 element: <AdminRoute><UsersInfo></UsersInfo></AdminRoute>,
             },

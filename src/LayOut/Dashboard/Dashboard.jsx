@@ -90,27 +90,27 @@ const Dashboard = () => {
                                     <li>
                                         <NavLink to="/dashboard/userHome">
                                             <FaHome></FaHome>
-                                            User Home</NavLink>
+                                            Home</NavLink>
                                     </li>
                                     <li>
-                                        <NavLink to="/dashboard/history">
+                                        <NavLink to="/dashboard/credit-score">
                                             <FaCalendar></FaCalendar>
-                                            Not History</NavLink>
+                                            Check Score</NavLink>
                                     </li>
                                     <li>
-                                        <NavLink to="/dashboard/cart">
+                                        <NavLink to="/dashboard/score-monitor">
                                             <FaShoppingCart></FaShoppingCart>
-                                            My Cart ()</NavLink>
-                                    </li>
-                                    <li>
-                                        <NavLink to="/dashboard/review">
-                                            <FaAd></FaAd>
-                                            Add a Review</NavLink>
+                                            Score Monitor</NavLink>
                                     </li>
                                     <li>
                                         <NavLink to="/dashboard/paymentHistory">
+                                            <FaAd></FaAd>
+                                            Payment History</NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink to="/dashboard/scoretHistory">
                                             <FaList></FaList>
-                                            Real Payment History</NavLink>
+                                            Report History</NavLink>
                                     </li>
                                 </>
                         }
@@ -127,7 +127,7 @@ const Dashboard = () => {
                             <li>
                                 <NavLink to="/order/salad">
                                     <FaSearch></FaSearch>
-                                    Menu</NavLink>
+                                    Services</NavLink>
                             </li>
                             <li>
                                 <NavLink to="/order/contact">
@@ -140,7 +140,7 @@ const Dashboard = () => {
                             <li>
                                 <NavLink to="/dashboard/profile">
                                     <MdOutlinePersonPin></MdOutlinePersonPin>
-                                    Profile</NavLink>
+                                    Settings</NavLink>
                             </li>
                             <li>
                                 <Link to={'#'}>

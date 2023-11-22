@@ -18,7 +18,6 @@ const Step3 = () => {
         }
     }, [location]);
 
-
     const handelSubmit = (e) => {
         e.preventDefault();
         const ssn_create = e.target.ssn_create.value;
@@ -68,12 +67,12 @@ const Step3 = () => {
                                             <div>
                                                 <label className="block text-gray-700  mb-1">Social Security Numbe
                                                     <span className='text-red-500'>*</span></label>
-                                                <input required type="text" name="ssn_create" className="w-full rounded-lg border py-2 px-3" />
+                                                <input required maxLength={9} type="new-password" name="ssn_create" className="w-full rounded-lg border py-2 px-3" />
                                             </div>
                                             <div>
                                                 <label className="block text-gray-700  mb-1">Confirm Social Security Number
                                                     <span className='text-red-500'>*</span></label>
-                                                <input required type="text" name="ssn_confirm" className="w-full rounded-lg border py-2 px-3" />
+                                                <input maxLength={9} required type="new-password" name="ssn_confirm" className="w-full rounded-lg border py-2 px-3" />
                                             </div>
                                         </div>
 

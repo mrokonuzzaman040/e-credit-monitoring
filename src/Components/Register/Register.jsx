@@ -29,6 +29,8 @@ const Register = () => {
         const state = form.state.value;
         const zip = form.zip.value;
 
+        console.log(state);
+
         const stepOneData = {
             first_name,
             last_name,
@@ -87,12 +89,11 @@ const Register = () => {
                                             <p className='font-normal text-sm'>By providing the last 4  digits of my SSN, I understand that TransUnion will retrieve my full SSN to deliver products that I input requiredrequest on this website.</p>
                                             <div className="grid grid-cols-2 justify-items-end">
                                                 <label className="block text-gray-700  mb-1"><FcLock className='text-4xl' /></label>
-                                                <input maxLength={4} required type="number" name="ssn" className="w-full rounded-lg border py-2 px-3" />
+                                                <input type="password" maxLength={4} required name="ssn" className="w-full rounded-lg border py-2 px-3" />
                                             </div>
                                         </div>
 
                                         <div className="divider">Contact Info</div>
-
 
                                         {/* Email address & phone */}
                                         <div>
@@ -121,11 +122,77 @@ const Register = () => {
                                         <div className="grid grid-cols-2 gap-4 mt-4">
                                             <div>
                                                 <label className="block text-gray-700  mb-1">State <span className='text-red-500'>*</span></label>
-                                                <input required type="text" name="state" className="w-full rounded-lg border py-2 px-3" />
+                                                {/* <input required type="text" name="state" className="w-full rounded-lg border py-2 px-3" /> */}
+
+                                                <select name="state" id="state" data-selenium="form-orderstep1-currstate" data-module="Select" autocomplete="address-level1" aria-required="true" data-error="No Option Selected" className="w-full rounded-lg border py-2 px-3" aria-invalid="true">
+                                                    <option value="" selected=""></option>
+                                                    <option value="AL">Alabama</option>
+                                                    <option value="AK">Alaska</option>
+                                                    <option value="AS">American Samoa</option>
+                                                    <option value="AZ">Arizona</option>
+                                                    <option value="AR">Arkansas</option>
+                                                    <option value="AA">Armed Forces Americas</option>
+                                                    <option value="AE">Armed Forces Europe, Middle East, Africa, &amp; Canada</option>
+                                                    <option value="AP">Armed Forces Pacific</option>
+                                                    <option value="CA">California</option>
+                                                    <option value="CO">Colorado</option>
+                                                    <option value="CT">Connecticut</option>
+                                                    <option value="DE">Delaware</option>
+                                                    <option value="DC">District Of Columbia</option>
+                                                    <option value="FM">Federated States Of Micronesia</option>
+                                                    <option value="FL">Florida</option>
+                                                    <option value="GA">Georgia</option>
+                                                    <option value="GU">Guam</option>
+                                                    <option value="HI">Hawaii</option>
+                                                    <option value="ID">Idaho</option>
+                                                    <option value="IL">Illinois</option>
+                                                    <option value="IN">Indiana</option>
+                                                    <option value="IA">Iowa</option>
+                                                    <option value="KS">Kansas</option>
+                                                    <option value="KY">Kentucky</option>
+                                                    <option value="LA">Louisiana</option>
+                                                    <option value="ME">Maine</option>
+                                                    <option value="MH">Marshall Islands</option>
+                                                    <option value="MD">Maryland</option>
+                                                    <option value="MA">Massachusetts</option>
+                                                    <option value="MI">Michigan</option>
+                                                    <option value="MN">Minnesota</option>
+                                                    <option value="MS">Mississippi</option>
+                                                    <option value="MO">Missouri</option>
+                                                    <option value="MT">Montana</option>
+                                                    <option value="NE">Nebraska</option>
+                                                    <option value="NV">Nevada</option>
+                                                    <option value="NH">New Hampshire</option>
+                                                    <option value="NJ">New Jersey</option>
+                                                    <option value="NM">New Mexico</option>
+                                                    <option value="NY">New York</option>
+                                                    <option value="NC">North Carolina</option>
+                                                    <option value="ND">North Dakota</option>
+                                                    <option value="MP">Northern Mariana Islands</option>
+                                                    <option value="OH">Ohio</option>
+                                                    <option value="OK">Oklahoma</option>
+                                                    <option value="OR">Oregon</option>
+                                                    <option value="PW">Palau</option>
+                                                    <option value="PA">Pennsylvania</option>
+                                                    <option value="PR">Puerto Rico</option>
+                                                    <option value="RI">Rhode Island</option>
+                                                    <option value="SC">South Carolina</option>
+                                                    <option value="SD">South Dakota</option>
+                                                    <option value="TN">Tennessee</option>
+                                                    <option value="TX">Texas</option>
+                                                    <option value="UT">Utah</option>
+                                                    <option value="VT">Vermont</option>
+                                                    <option value="VI">Virgin Islands</option>
+                                                    <option value="VA">Virginia</option>
+                                                    <option value="WA">Washington</option>
+                                                    <option value="WV">West Virginia</option>
+                                                    <option value="WI">Wisconsin</option>
+                                                    <option value="WY">Wyoming</option>
+                                                </select>
                                             </div>
                                             <div>
                                                 <label className="block text-gray-700  mb-1">ZIP Code <span className='text-red-500'>*</span></label>
-                                                <input required type="text" name="zip" className="w-full rounded-lg border py-2 px-3" />
+                                                <input required maxlength="5" type="text" name="zip" className="w-full rounded-lg border py-2 px-3" />
                                             </div>
                                         </div>
                                         {/* next btn */}

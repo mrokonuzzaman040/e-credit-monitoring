@@ -25,6 +25,7 @@ const Step2 = () => {
     const { createUser, updateUserProfile } = useContext(AuthContext)
     const email = stepOneData.email;
 
+    console.log(stepOneData);
 
     const displayName = stepOneData.first_name + ' ' + stepOneData.last_name;
 
@@ -39,6 +40,8 @@ const Step2 = () => {
         const cvc = e.target.cvc.value;
         const exdate = e.target.exdate.value;
 
+
+
         const stepTwoData = {
             ...stepOneData,
             email,
@@ -50,6 +53,7 @@ const Step2 = () => {
             cvc,
             exdate
         };
+
 
         if (create_password !== confirm_password) {
             toast.error('Password not match');
@@ -114,7 +118,24 @@ const Step2 = () => {
                                             <div>
                                                 <label className="block text-gray-700  mb-1">Secret Question
                                                     <span className='text-red-500'>*</span></label>
-                                                <input required type="text" name="seq" className="w-full rounded-lg border py-2 px-3" />
+                                                <select name="seq" required aria-required="true" data-selenium="form-orderstep2-secretquestion" aria-describedby="secret-question-desc" data-module="Select" data-error="No Option Selected" className="w-full rounded-lg border py-2 px-3" aria-invalid="true">
+                                                    <option value="" selected="true">-- choose a secret question --</option>
+                                                    <option value="What was your high school mascot?">What was your high school
+                                                        mascot?</option>
+                                                    <option value="What was your first grade teacher's last name?">What was your
+                                                        first grade teacher's last name?</option>
+                                                    <option value="What was the make and model of your first car?">What was the make
+                                                        and model of your first car?</option>
+                                                    <option value="What is your mother's middle name?">What is your mother's middle
+                                                        name?</option>
+                                                    <option value="What is your father's middle name?">What is your father's middle
+                                                        name?</option>
+                                                    <option value="What city were you born in?">What city were you born in?</option>
+                                                    <option value="What is your grandmother's first name (on your mother's side)?">
+                                                        What is your grandmother's first name (on your mother's side)?</option>
+                                                    <option value="What is your grandfather's first name (on your father's side)?">
+                                                        What is your grandfather's first name (on your father's side)?</option>
+                                                </select>
                                             </div>
                                             <div>
                                                 <label className="block text-gray-700  mb-1">Secret Answer
@@ -128,13 +149,13 @@ const Step2 = () => {
                                         <div className="gap-4 grid grid-cols-1">
                                             <div className="mt-4">
                                                 <label className="block text-gray-700  mb-1">Credit Card Number for Monthly Payment<span className='text-red-500'>*</span></label>
-                                                <input placeholder="Card Number" required type="text" name="card_number" className="w-full rounded-lg border py-2 px-3" />
+                                                <input placeholder="Card Number" required type="text" maxLength={12} name="card_number" className="w-full rounded-lg border py-2 px-3" />
                                             </div>
 
                                             <div className="mt-4 grid grid-cols-2 items-center">
                                                 <label className="block text-gray-700  mb-1">Security Code
                                                     <span className='text-red-500'>*</span></label>
-                                                <input placeholder="CVC Number" required type="text" name="cvc" className="w-full rounded-lg border py-2 px-3" />
+                                                <input placeholder="CVC Number" maxLength={4} required type="text" name="cvc" className="w-full rounded-lg border py-2 px-3" />
                                             </div>
 
                                             <div className="grid grid-cols-1 gap-4 mt-4">

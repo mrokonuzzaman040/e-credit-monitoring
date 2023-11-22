@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import useAxiosPublic from '../../../../hooks/useAxiosPublic';
 import { useQuery } from '@tanstack/react-query';
 
@@ -34,11 +35,7 @@ const ManageReview = () => {
                                     <td>{review.details}</td>
                                     <td>{review.rating}</td>
                                     <td>
-<<<<<<< HEAD
-                                        <button className='btn'>Edit</button>
-=======
-                                        <button className="btn btn-danger">Edit</button>
->>>>>>> f1da6f482d007356730be8c4f2c3d5c72742bed7
+                                        <Link to={`editReviews/${review._id}`} className='btn'>Edit</Link>
                                     </td>
                                 </tr>
                             )

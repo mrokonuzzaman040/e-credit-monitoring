@@ -149,7 +149,7 @@ const Step2 = () => {
                                         <div className="gap-4 grid grid-cols-1">
                                             <div className="mt-4">
                                                 <label className="block text-gray-700  mb-1">Credit Card Number for Monthly Payment<span className='text-red-500'>*</span></label>
-                                                <input placeholder="Card Number" required type="text" maxLength={12} name="card_number" className="w-full rounded-lg border py-2 px-3" />
+                                                <input placeholder="Card Number" required type="text" maxLength={16} name="card_number" className="w-full rounded-lg border py-2 px-3" />
                                             </div>
 
                                             <div className="mt-4 grid grid-cols-2 items-center">

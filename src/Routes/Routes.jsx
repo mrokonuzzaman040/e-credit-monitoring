@@ -25,6 +25,8 @@ import UserHome from "../LayOut/User/UserHome";
 import CreditScore from "../LayOut/User/Components/CreditSocre/CreditScore";
 import PaymentHistory from "../LayOut/User/Components/PaymentHistory/PaymentHistory";
 import ScoreHistory from "../LayOut/User/Components/ScoreHistory/ScoreHistory";
+import Profile from "../LayOut/User/Components/Settings/Profile/Profile";
+import Contact from "../LayOut/User/Components/Support/Contact/Contact";
 
 export const router = createBrowserRouter([
     {
@@ -113,6 +115,16 @@ export const router = createBrowserRouter([
                 path: 'scoretHistory',
                 element: <PrivateRoute><ScoreHistory></ScoreHistory></PrivateRoute>,
             },
+
+            // error page
+            {
+                path: 'settings',
+                element: <PrivateRoute><Profile></Profile></PrivateRoute>
+            },
+            {
+                path: 'contact',
+                element: <PrivateRoute><Contact></Contact></PrivateRoute>
+            }
         ]
     }
 ]);

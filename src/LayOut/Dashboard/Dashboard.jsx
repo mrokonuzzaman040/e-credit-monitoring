@@ -132,7 +132,7 @@ const Dashboard = () => {
                                     Services</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/order/contact">
+                                <NavLink to="/dashboard/contact">
                                     <FaEnvelope></FaEnvelope>
                                     Contact</NavLink>
                             </li>
@@ -140,7 +140,7 @@ const Dashboard = () => {
 
                         <div className="">
                             <li>
-                                <NavLink to="/dashboard/profile">
+                                <NavLink to="/dashboard/settings">
                                     <MdOutlinePersonPin></MdOutlinePersonPin>
                                     Settings</NavLink>
                             </li>

@@ -78,12 +78,12 @@ const Dashboard = () => {
                                 <li>
                                     <NavLink to="/dashboard/userInfos">
                                         <FaRegUser></FaRegUser>
-                                        Users Info</NavLink>
+                                        Member Info</NavLink>
                                 </li>
                                 <li>
                                     <NavLink to="/dashboard/allUsers">
                                         <FaUsers></FaUsers>
-                                        All Users</NavLink>
+                                        All Members</NavLink>
                                 </li>
 
                             </>

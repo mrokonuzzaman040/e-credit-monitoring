@@ -29,7 +29,7 @@ const AdminHome = () => {
                 <div className="bg-red-400 glass rounded-lg">
                     <div className="card text-neutral-content">
                         <div className="card-body items-center text-center">
-                            <h2 className="card-title">Total User</h2>
+                            <h2 className="card-title">Toatal Earning</h2>
                             <p>{ }</p>
                         </div>
                     </div>
@@ -37,7 +37,7 @@ const AdminHome = () => {
                 <div className="bg-red-400 glass rounded-lg">
                     <div className="card text-neutral-content">
                         <div className="card-body items-center text-center">
-                            <h2 className="card-title">Total User</h2>
+                            <h2 className="card-title">Total Profit</h2>
                             <p>{ }</p>
                         </div>
                     </div>

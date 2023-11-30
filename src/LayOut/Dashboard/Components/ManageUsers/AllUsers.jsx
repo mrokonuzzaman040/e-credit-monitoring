@@ -1,11 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
-import { FaTrashAlt, FaUsers } from "react-icons/fa";
 import Swal from "sweetalert2";
 
 
+// icons
+import { MdAdminPanelSettings, MdDelete } from "react-icons/md";
+
+
 const AllUsers = () => {
-    
+
     const axiosSecure = useAxiosSecure();
 
     const { data: users = [], refetch } = useQuery({
@@ -18,20 +21,32 @@ const AllUsers = () => {
 
 
     const handleMakeAdmin = user => {
-        axiosSecure.patch(`/users/admin/${user._id}`)
-            .then(res => {
-                console.log(res.data)
-                if (res.data.modifiedCount > 0) {
-                    refetch();
-                    Swal.fire({
-                        position: "top-end",
-                        icon: "success",
-                        title: `${user.name} is an Admin Now!`,
-                        showConfirmButton: false,
-                        timer: 1500
-                    });
-                }
-            })
+        Swal.fire({
+            title: "Are you sure?",
+            text: `Do you want to make ${user.name} an admin?`,
+            icon: "question",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, make admin!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axiosSecure.patch(`/users/admin/${user._id}`)
+                    .then(res => {
+                        console.log(res.data)
+                        if (res.data.modifiedCount > 0) {
+                            refetch();
+                            Swal.fire({
+                                position: "top-end",
+                                icon: "success",
+                                title: `${user.name} is an Admin Now!`,
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                        }
+                    })
+            }
+        });
     }
 
     const handleDeleteUser = user => {
@@ -88,16 +103,16 @@ const AllUsers = () => {
                                 <td>
                                     {user.role === 'admin' ? 'Admin' : <button
                                         onClick={() => handleMakeAdmin(user)}
-                                        className="btn btn-lg bg-orange-500">
-                                        <FaUsers className="text-white 
-                                        text-2xl"></FaUsers>
+                                        className="btn bg-indigo-300">
+                                        <MdAdminPanelSettings className="text-white 
+                                        text-2xl"></MdAdminPanelSettings>
                                     </button>}
                                 </td>
                                 <td>
                                     <button
                                         onClick={() => handleDeleteUser(user)}
-                                        className="btn btn-ghost btn-lg">
-                                        <FaTrashAlt className="text-red-600"></FaTrashAlt>
+                                        className="btn btn-ghost">
+                                        <MdDelete className="text-red-600"></MdDelete>
                                     </button>
                                 </td>
                             </tr>)

@@ -1,20 +1,20 @@
 import { Link, NavLink, Outlet } from "react-router-dom";
-import useAdmin from "../../hooks/useAdmin";
-import useAuth from "../../hooks/useAuth";
-import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { useEffect } from "react";
 import { useState } from "react";
 
+import useAuth from "../../hooks/useAuth";
+import useAdmin from "../../hooks/useAdmin";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 // Icons
 import { FaAlignLeft, FaRegUser, FaCalendar, FaEnvelope, FaHome, FaList, FaSearch, FaShoppingCart, FaUsers, FaAd } from "react-icons/fa";
 import { MdReviews, MdAddBox, MdOutlinePersonPin } from "react-icons/md";
 
 
 const Dashboard = () => {
-    const { user } = useAuth();
-    const { logOut } = useAuth();
+    const { user, logOut } = useAuth();
     const [isAdmin] = useAdmin();
     const [userData, setUserData] = useState({});
+
     const handleLogOut = () => {
         logOut()
             .then(() => { })

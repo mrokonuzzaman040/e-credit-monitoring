@@ -3,6 +3,8 @@ import { useState } from "react";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import useAuth from "../../hooks/useAuth";
 
+import user_img from '../../../public/user.png'
+
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -37,7 +39,7 @@ const Review = () => {
                         <SwiperSlide key={review._id}>
                             <div className="flex flex-col justify-center items-center mx-24 my-16 gap-3">
                                 <div className="">
-                                    <img className='w-[80px] h-[80px] rounded-full' src={review.image ? review.user_photo : user} alt="" />
+                                    <img className='w-[80px] h-[80px] rounded-full' src={review.image ? review.image : user_img} alt="" />
                                 </div>
                                 <Rating
                                     style={{ maxWidth: 180 }}

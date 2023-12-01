@@ -48,5 +48,3 @@ const AdminHome = () => {
 };
 
 export default AdminHome;
-{/* <h1>Hello {user.displayName}</h1>
-<h1>Admin Home</h1> */}

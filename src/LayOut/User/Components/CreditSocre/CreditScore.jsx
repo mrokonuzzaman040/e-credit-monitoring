@@ -4,8 +4,13 @@ import { useForm } from "react-hook-form";
 
 
 const CreditScore = () => {
-    const { register, handleSubmit, reset } = useForm();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const score = 750;
+
+    const onSubmit = (data) => {
+        console.log(data);
+        reset();
+    };
     return (
         <div>
             <div className="items-center text-center mt-10">
@@ -17,159 +22,136 @@ const CreditScore = () => {
             </div>
             <div className="divider"></div>
             <div className="">
-                <form onSubmit={handleSubmit()} className="w-full ">
-                    <div className="flex flex-wrap -mx-3 mb-6">
-                        <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-first-name">
-                                Property Name
-                            </label>
-                            <input {...register('home_name', { required: true })} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-indigo-100" id="grid-first-name" type="text" placeholder="Amar Villa" />
-                        </div>
-                        <div className="w-full md:w-1/2 px-3">
-                            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-last-name">
-                                Property Location
-                            </label>
-                            <input {...register('home_location', { required: true })} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-indigo-100 focus:border-indigo-500" id="grid-last-name" type="text" placeholder="Mirpur-11" />
-                        </div>
-                    </div>
-                    <div className="flex flex-wrap -mx-3 mb-6">
-                        <div className="w-full px-3">
-                            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
-                                Property Description
-                            </label>
-                            <textarea {...register('home_description', { required: true })} className="textarea textarea-bordered h-32 w-full" placeholder=" Property Description"></textarea>
-                        </div>
-
-                    </div>
+                <form onSubmit={handleSubmit(onSubmit)} className="w-full ">
                     <div className="flex flex-wrap -mx-3 mb-2">
                         <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0 gap-2">
-                            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-price">
-                                Price Rangge
+                            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-inquiryDate">
+                                Inquiry Date
                             </label>
-                            <div className="flex gap-3 items-center">
-                                <input {...register('home_starting_price', { required: true })} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-indigo-100 focus:border-indigo-500" id="grid-price" type="text" placeholder="$100" />
-                                <p className=""> - </p>
-                                <input {...register('home_ending_price', { required: true })} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-indigo-100 focus:border-indigo-500" id="grid-time" type="text" placeholder="$999" />
-                            </div>
-                        </div>
-
-                        <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-state">
-                                Property Type
-                            </label>
-                            <div className="relative">
-                                <select {...register('home_type', { required: true })} className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-indigo-100 focus:border-indigo-500" id="grid-state">
-                                    <option>Flat</option>
-                                    <option>House</option>
-                                    <option>Office</option>
-                                    <option>Shop</option>
-                                    <option>Garage</option>
-                                    <option>Land</option>
-                                </select>
-                                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                                    <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                        <path
-                                            fillRule="evenodd"
-                                            d="M5.293 6.707a1 1 0 010-1.414L8.586 1.5a2 2 0 012.828
-                                            0l2.829 2.829a1 1 0 11-1.414 1.414L11
-                                            4.414V13a1 1 0 11-2 0V4.414L6.707
-                                            6.707a1 1 0 01-1.414 0z"
-                                            clipRule="evenodd"
-                                        />
-                                    </svg>
-                                </div>
-                            </div>
-
+                            <input
+                                {...register('inquiryDate', { required: true, pattern: /\d{4}-\d{2}-\d{2}/ })}
+                                className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-indigo-100 focus:border-indigo-500" id="grid-inquiryDate" type="text" placeholder="2022-01-01" />
                         </div>
                         <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-zip">
-                                Property Area
+                            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-inquiryType">
+                                Inquiry Type
                             </label>
-                            <input {...register('home_area', { required: true })} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-indigo-100 focus:border-indigo-500" id="grid-zip" type="text" placeholder="1200" />
-                        </div>
-
-                    </div>
-                    <div className="flex flex-wrap -mx-3 mb-2">
-                        <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-city">
-                                Property Bed
-                            </label>
-                            <input {...register('home_bed', { required: true })} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-indigo-100 focus:border-indigo-500" id="grid-city" type="text" placeholder="3" />
+                            <input
+                                {...register('inquiryType', { required: true })} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-indigo-100 focus:border-indigo-500" id="grid-inquiryType" type="text" placeholder="Type" />
                         </div>
                         <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-state">
-                                Property Bath
+                            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-permPurpose">
+                                Perm Purpose
                             </label>
-                            <div className="relative">
-                                <select {...register('home_bath', { required: true })} className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-indigo-100 focus:border-indigo-500" id="grid-state">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                </select>
-                                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                                    <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                        <path
-                                            fillRule="evenodd"
-                                            d="M5.293 6.707a1 1 0 010-1.414L8.586 1.5a2 2 0 012.828
-                                            0l2.829 2.829a1 1 0 11-1.414 1.414L11
-                                            4.414V13a1 1 0 11-2 0V4.414L6.707
-                                            6.707a1 1 0 01-1.414 0z"
-                                            clipRule="evenodd"
-                                        />
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-zip">
-                                Property Garage
-                            </label>
-                            <input {...register('home_garage', { required: true })} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-indigo-100 focus:border-indigo-500" id="grid-zip" type="text" placeholder="1" />
+                            <input
+                                {...register('permPurpose', { required: true })} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-indigo-100 focus:border-indigo-500" id="grid-permPurpose" type="text" placeholder="Purpose" />
                         </div>
                     </div>
                     <div className="flex flex-wrap -mx-3 mb-2">
                         <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-city">
-                                Property Size
+                            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-trackingId">
+                                Tracking ID
                             </label>
-                            <input {...register('home_size', { required: true })} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-indigo-100 focus:border-indigo-500" id="grid-city" type="text" placeholder="1200" />
+                            <input
+                                {...register('trackingId', { required: true })} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-indigo-100 focus:border-indigo-500" id="grid-trackingId" type="text" placeholder="Tracking ID" />
                         </div>
                         <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-state">
-                                Property Status
+                            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-sourceSystemId">
+                                Source System ID
                             </label>
-                            <div className="relative">
-                                <select {...register('home_status', { required: true })} className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-indigo-100 focus:border-indigo-500" id="grid-state">
-                                    <option>Rent</option>
-                                    <option>Sale</option>
-                                </select>
-                                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                                    <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                        <path
-                                            fillRule="evenodd"
-                                            d="M5.293 6.707a1 1 0 010-1.414L8.586 1.5a2 2 0 012.828
-                                            0l2.829 2.829a1 1 0 11-1.414 1.414L11
-                                            4.414V13a1 1 0 11-2 0V4.414L6.707
-                                            6.707a1 1 0 01-1.414 0z"
-                                            clipRule="evenodd"
-                                        />
-                                    </svg>
-                                </div>
-                            </div>
+                            <input
+                                {...register('sourceSystemId', { required: true })} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-indigo-100 focus:border-indigo-500" id="grid-sourceSystemId" type="text" placeholder="Source System ID" />
+                        </div>
+                        <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-sourceName">
+                                Source Name
+                            </label>
+                            <input
+                                {...register('sourceName', { required: true })} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-indigo-100 focus:border-indigo-500" id="grid-sourceName" type="text" placeholder="Source Name" />
                         </div>
                     </div>
                     <div className="flex flex-wrap -mx-3 mb-2">
                         <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-city">
-                                Property Image
+                            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-resellerName">
+                                Reseller Name
                             </label>
-                            <input {...register('home_photo',)} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-2 px-4 leading-tight focus:outline-none focus:bg-indigo-100 focus:border-indigo-500" type="file" />
+                            <input
+                                {...register('resellerName', { required: true })} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-indigo-100 focus:border-indigo-500" id="grid-resellerName" type="text" placeholder="Reseller Name" />
+                        </div>
+                        <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-platformName">
+                                Platform Name
+                            </label>
+                            <input
+                                {...register('platformName', { required: true })} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-indigo-100 focus:border-indigo-500" id="grid-platformName" type="text" placeholder="Platform Name" />
+                        </div>
+                        <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-intermediaryName">
+                                Intermediary Name
+                            </label>
+                            <input
+                                {...register('intermediaryName', { required: true })} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-indigo-100 focus:border-indigo-500" id="grid-intermediaryName" type="text" placeholder="Intermediary Name" />
+                        </div>
+                    </div>
+                    <div className="flex flex-wrap -mx-3 mb-2">
+                        <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-name">
+                                Requestor Name
+                            </label>
+                            <input
+                                {...register('requestor.name', { required: true })} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-indigo-100 focus:border-indigo-500" id="grid-name" type="text" placeholder="Requestor Name" />
+                        </div>
+                        <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-endUser">
+                                Requestor End User
+                            </label>
+                            <input
+                                {...register('requestor.endUser', { required: true })} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-indigo-100 focus:border-indigo-500" id="grid-endUser" type="text" placeholder="Requestor End User" />
+                        </div>
+                        <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-email">
+                                Requestor Email
+                            </label>
+                            <input
+                                {...register('requestor.email', { required: true })} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-indigo-100 focus:border-indigo-500" id="grid-email" type="text" placeholder="Requestor Email" />
+                        </div>
+                    </div>
+                    <div className="flex flex-wrap -mx-3 mb-2">
+                        <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-address">
+                                Requestor Address
+                            </label>
+                            <input
+                                {...register('requestor.address', { required: true })} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-indigo-100 focus:border-indigo-500" id="grid-address" type="text" placeholder="Requestor Address" />
+                        </div>
+                        <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-phoneNumbers">
+                                Requestor Phone Numbers
+                            </label>
+                            <input
+                                {...register('requestor.phoneNumbers', { required: true })} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-indigo-100 focus:border-indigo-500" id="grid-phoneNumbers" type="text" placeholder="Requestor Phone Numbers" />
+                        </div>
+                    </div>
+                    <div className="flex flex-wrap -mx-3 mb-2">
+                        <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-customerReferenceIdentifier">
+                                Customer Reference Identifier
+                            </label>
+                            <input
+                                {...register('primaryConsumer.personalInformation.customerReferenceIdentifier', { required: true })} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-indigo-100 focus:border-indigo-500" id="grid-customerReferenceIdentifier" type="text" placeholder="Customer Reference Identifier" />
+                        </div>
+                        <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-socialSecurityNumber">
+                                Social Security Number
+                            </label>
+                            <input
+                                {...register('primaryConsumer.personalInformation.socialSecurityNumber', { required: true })} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-indigo-100 focus:border-indigo-500" id="grid-socialSecurityNumber" type="text" placeholder="Social Security Number" />
                         </div>
                     </div>
                     <div className="flex flex-wrap -mx-3 mb-2">
                         <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
                             <button className="bg-indigo-500 hover:ring-2 hover:ring-indigo-700  text-white font-bold py-2 px-4 rounded">
-                                Add Property
+                                Check Credit Score
                             </button>
                         </div>
                     </div>

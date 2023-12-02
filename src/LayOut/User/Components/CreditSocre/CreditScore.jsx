@@ -9,7 +9,6 @@ const CreditScore = () => {
 
     const onSubmit = (data) => {
         console.log(data);
-        reset();
     };
     return (
         <div>

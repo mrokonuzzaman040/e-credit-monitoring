@@ -91,7 +91,7 @@ const UsersInfo = () => {
                     placeholder="Search with name"
                     value={searchTerm}
                     onChange={handleSearch}
-                    className="px-4 py-2 border w-32 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="input input-bordered input-sm max-w-xs px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
             </div>
             <table id="example" className="table-auto table table-xs w-full">
@@ -168,7 +168,7 @@ const UsersInfo = () => {
                         ))}
                     </select>
                 </div>
-                <CSVLink data={csvData} filename={"user_data.csv"} className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">Download CSV</CSVLink>
+                <CSVLink data={csvData} filename={"user_data.csv"} className="btn btn-wide btn-sm">Download CSV</CSVLink>
             </div>
         </div>
     );

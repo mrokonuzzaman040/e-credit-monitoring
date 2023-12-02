@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import user from "../../../../../public/user.png";
 
 
 // icons
@@ -79,36 +80,45 @@ const AllUsers = () => {
     return (
         <div>
             <div className="flex justify-evenly my-4">
-                <h2 className="text-3xl">All Users</h2>
-                <h2 className="text-3xl">Total Users: {users.length}</h2>
+                <h2 className="text-2xl">All Users</h2>
+                <h2 className="text-2xl">Total Users: {users.length}</h2>
             </div>
             <div className="overflow-x-auto">
                 <table className="table table-zebra w-full">
-                    {/* head */}
-                    <thead>
+                    <thead class="bg-gray-50">
                         <tr>
-                            <th>SL</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Role</th>
-                            <th>Action</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                SL
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Name
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Email
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Role
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Action
+                            </th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody className="">
                         {
                             users.map((user, index) => <tr key={user._id}>
-                                <th>{index + 1}</th>
-                                <td>{user.first_name}</td>
-                                <td>{user.email}</td>
-                                <td>
-                                    {user.role === 'admin' ? 'Admin' : <button
+                                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{index + 1}</th>
+                                <td className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{user.first_name}</td>
+                                <td className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{user.email}</td>
+                                <td className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    {user.role === 'admin' ? <p className="badge bg-green-400 border-none">Admin</p> : <button
                                         onClick={() => handleMakeAdmin(user)}
                                         className="btn bg-indigo-300">
                                         <MdAdminPanelSettings className="text-white 
                                         text-2xl"></MdAdminPanelSettings>
                                     </button>}
                                 </td>
-                                <td>
+                                <td className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     <button
                                         onClick={() => handleDeleteUser(user)}
                                         className="btn btn-ghost">

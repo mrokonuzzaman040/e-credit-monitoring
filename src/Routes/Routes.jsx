@@ -27,6 +27,7 @@ import PaymentHistory from "../LayOut/User/Components/PaymentHistory/PaymentHist
 import ScoreHistory from "../LayOut/User/Components/ScoreHistory/ScoreHistory";
 import Profile from "../LayOut/User/Components/Settings/Profile/Profile";
 import Contact from "../LayOut/User/Components/Support/Contact/Contact";
+import CreditMonitor from "../LayOut/User/Components/CreditMonitor/CreditMonitor";
 
 export const router = createBrowserRouter([
     {
@@ -105,7 +106,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'score-monitor',
-                element: <PrivateRoute><h2>Score Monitor</h2></PrivateRoute>,
+                element: <PrivateRoute><CreditMonitor></CreditMonitor></PrivateRoute>,
             },
             {
                 path: 'paymentHistory',

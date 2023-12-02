@@ -76,7 +76,7 @@ const ManageReview = () => {
         <div>
             <h1>Manage Review</h1>
             <table className="table">
-                <thead>
+                <thead >
                     <tr>
                         <th scope="col">Name</th>
                         <th scope="col">Review</th>
@@ -111,13 +111,13 @@ const ManageReview = () => {
                         <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                     </form>
                     <h3 className="font-bold text-lg">{reviewToUpdate.name}</h3>
-                    <p className="py-4">Name: <input type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" defaultValue={reviewToUpdate.name} />
+                    <p className="py-4">Name: <input type="text" placeholder="Type here" className="input input-bordered w-full" defaultValue={reviewToUpdate.name} />
                     </p>
 
-                    <p className="py-4">Details: <textarea type="text" placeholder="Type here" className="textarea textarea-bordered w-fit" defaultValue={reviewToUpdate.details} />
+                    <p className="py-4">Details: <textarea  type="text" placeholder="Type here" className="textarea textarea-bordered w-full" defaultValue={reviewToUpdate.details} />
                     </p>
 
-                    <p className="py-4">Rating: <input type="number" maxLength="1" placeholder="Type here" className="input input-bordered w-full max-w-xs" defaultValue={reviewToUpdate.rating} />
+                    <p className="py-4">Rating: <input type="number" maxLength="1" placeholder="Type here" className="input input-bordered w-full" defaultValue={reviewToUpdate.rating} />
                     </p>
 
                     <button className='btn w-auto' onClick={() => handleUpdate(reviewToUpdate._id)}>Update</button>

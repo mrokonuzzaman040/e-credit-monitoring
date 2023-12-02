@@ -48,7 +48,7 @@ const Dashboard = () => {
                         <label htmlFor="my-drawer-2" className="btn items-center justify-center btn-square btn-primary drawer-button"><FaAlignLeft ></FaAlignLeft></label>
                     </div>
                 </div>
-                <div className="mt-4 bg-indigo-300 min-h-full rounded-xl p-4">
+                <div className="mt-4 glass bg-indigo-300 min-h-full rounded-xl p-4">
                     <Outlet></Outlet>
                 </div>
 

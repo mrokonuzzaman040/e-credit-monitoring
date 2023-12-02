@@ -104,7 +104,7 @@ const AllUsers = () => {
                             </th>
                         </tr>
                     </thead>
-                    <tbody className="">
+                    <tbody className="border px-4 py-2">
                         {
                             users.map((user, index) => <tr key={user._id}>
                                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{index + 1}</th>
@@ -113,9 +113,8 @@ const AllUsers = () => {
                                 <td className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     {user.role === 'admin' ? <p className="badge bg-green-400 border-none">Admin</p> : <button
                                         onClick={() => handleMakeAdmin(user)}
-                                        className="btn bg-indigo-300">
-                                        <MdAdminPanelSettings className="text-white 
-                                        text-2xl"></MdAdminPanelSettings>
+                                        className="bg-indigo-300 btn text-center text-2xl">
+                                        <MdAdminPanelSettings className="text-white"></MdAdminPanelSettings>
                                     </button>}
                                 </td>
                                 <td className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -127,7 +126,6 @@ const AllUsers = () => {
                                 </td>
                             </tr>)
                         }
-
                     </tbody>
                 </table>
             </div>

@@ -114,7 +114,7 @@ const ManageReview = () => {
                     <p className="py-4">Name: <input type="text" placeholder="Type here" className="input input-bordered w-full" defaultValue={reviewToUpdate.name} />
                     </p>
 
-                    <p className="py-4">Details: <textarea  type="text" placeholder="Type here" className="textarea textarea-bordered w-full" defaultValue={reviewToUpdate.details} />
+                    <p className="py-4">Details: <textarea type="text" placeholder="Type here" className="textarea textarea-bordered w-full" defaultValue={reviewToUpdate.details} />
                     </p>
 
                     <p className="py-4">Rating: <input type="number" maxLength="1" placeholder="Type here" className="input input-bordered w-full" defaultValue={reviewToUpdate.rating} />

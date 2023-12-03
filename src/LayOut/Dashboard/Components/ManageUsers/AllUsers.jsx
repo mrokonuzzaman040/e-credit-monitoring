@@ -20,11 +20,10 @@ const AllUsers = () => {
         }
     })
 
-
     const handleMakeAdmin = user => {
         Swal.fire({
             title: "Are you sure?",
-            text: `Do you want to make ${user.name} an admin?`,
+            text: `Do you want to make ${user.first_name} ${user.last_name} an admin?`,
             icon: "question",
             showCancelButton: true,
             confirmButtonColor: "#3085d6",

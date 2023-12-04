@@ -3,6 +3,7 @@ import useAxiosPublic from '../../../../hooks/useAxiosPublic';
 import { useQuery } from '@tanstack/react-query';
 import Swal from 'sweetalert2';
 import { useForm } from "react-hook-form";
+import { reload } from 'firebase/auth';
 
 // Image Hosting
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
@@ -22,7 +23,6 @@ const AddReview = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data.data.display_url);
                 setImage(data.data.display_url);
             })
             .catch(error => {
@@ -42,8 +42,7 @@ const AddReview = () => {
                     timer: 1500
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.reload();
-
+                        reload();
                     }
                 })
                     .catch((error) => {

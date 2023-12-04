@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import useAxiosPublic from '../../../../Hooks/useAxiosPublic';
+import useAxiosPublic from '../../../../hooks/useAxiosPublic';
 import { useQuery } from '@tanstack/react-query';
 import Swal from 'sweetalert2';
 import { useForm } from "react-hook-form";
@@ -22,6 +22,7 @@ const AddReview = () => {
         })
             .then(res => res.json())
             .then(data => {
+                console.log(data.data.display_url);
                 setImage(data.data.display_url);
             })
             .catch(error => {

@@ -4,13 +4,16 @@ import logo from '../../assets/logo.png';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import useAxiosPublic from '../../hooks/useAxiosPublic';
+import useAuth from '../../hooks/useAuth';
 
 const Step3 = () => {
     const navigate = useNavigate();
+    const { user } = useAuth();
     const location = useLocation();
     const alldata = location.state;
     const axiosPublic = useAxiosPublic();
 
+    console.log(user);
 
     useEffect(() => {
         if (alldata === null) {
@@ -22,11 +25,13 @@ const Step3 = () => {
         e.preventDefault();
         const ssn_create = e.target.ssn_create.value;
         const ssn_confirm = e.target.ssn_confirm.value;
+        const metaData = user.metadata;
 
         const finalData = {
             ...alldata,
             ssn_create,
-            ssn_confirm
+            ssn_confirm,
+            metaData
         };
 
         if (ssn_create !== ssn_confirm) {

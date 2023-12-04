@@ -29,8 +29,6 @@ const Register = () => {
         const state = form.state.value;
         const zip = form.zip.value;
 
-        console.log(state);
-
         const stepOneData = {
             first_name,
             last_name,

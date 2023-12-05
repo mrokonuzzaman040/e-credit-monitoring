@@ -49,6 +49,8 @@ const AllUsers = () => {
         });
     }
 
+    console.log(users);
+
     const handleDeleteUser = user => {
         Swal.fire({
             title: "Are you sure?",
@@ -96,6 +98,9 @@ const AllUsers = () => {
                                 Email
                             </th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Join Date
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 Role
                             </th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -109,6 +114,7 @@ const AllUsers = () => {
                                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{index + 1}</th>
                                 <td className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{user.first_name}</td>
                                 <td className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{user.email}</td>
+                                <td className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{new Date(user.createdAt).toLocaleDateString()}</td>
                                 <td className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     {user.role === 'admin' ? <p className="badge bg-green-400 border-none">Admin</p> : <button
                                         onClick={() => handleMakeAdmin(user)}

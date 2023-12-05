@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import css from '../Review/card.css'
 import useAxiosPublic from '../../../../hooks/useAxiosPublic';
 import { useQuery } from '@tanstack/react-query';
 import Swal from 'sweetalert2';
@@ -30,6 +30,9 @@ const ManageReview = () => {
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
             icon: 'question',
+            customClass: {
+                container: 'custom-swal',
+            },
             showCancelButton: true,
             confirmButtonColor: '#0d6efd',
             cancelButtonColor: '#dc3545',

@@ -1,10 +1,13 @@
 import React from 'react';
 import ReactStoreIndicator from 'react-score-indicator'
 import { useForm } from "react-hook-form";
+import { Link } from 'react-router-dom';
 
 const CreditMonitor = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const score = 160;
+
+    const [paid, setPaid] = React.useState(false);
 
     const onSubmit = data => {
         console.log(data);
@@ -149,9 +152,13 @@ const CreditMonitor = () => {
                     </div>
                     <div className="flex flex-wrap -mx-3 mb-2">
                         <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                            <button className="bg-indigo-500 hover:ring-2 hover:ring-indigo-700  text-white font-bold py-2 px-4 rounded">
-                                Check Credit Score
-                            </button>
+                            {
+                                paid ? <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                                    Submit
+                                </button> : <Link to={'/dashboard/make-payment'} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                                    Pay
+                                </Link>
+                            }
                         </div>
                     </div>
                 </form>

@@ -1,18 +1,118 @@
-import React from 'react';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
+import React, { useEffect, useState } from 'react';
+import useAxiosSecure from '../../../../hooks/useAxiosSecure';
+import { useNavigate } from 'react-router-dom';
+import useAuth from '../../../../hooks/useAuth';
 
 const CheckoutForm = () => {
-    return (
-        <div>
+    const stripe = useStripe();
+    const [clientSecret, setClientSecret] = useState('')
+    const [transactionId, setTransactionId] = useState('');
+    const [error, setError] = useState('');
+    const axiosSecure = useAxiosSecure();
 
-            <div className="">
-                <h1 className="text-3xl text-white font-bold text-center mb-5 ">Subscribe Before Start</h1>
-                <form action="">
-                    <p>Please enter your Payment Information</p>
-                    <CardElement />
-                    <button className="bg-indigo-500 text-white p-2 rounded-xl mt-5">Pay</button>
-                </form>
-            </div>
+    const elements = useElements();
+    const navigate = useNavigate();
+    const { user } = useAuth();
+
+    const totalPrice = 25.49;
+
+    useEffect(() => {
+        if (totalPrice > 0) {
+            axiosSecure.post('/create-payment-intent', { price: totalPrice })
+                .then(res => {
+                    console.log(res.data.clientSecret);
+                    setClientSecret(res.data.clientSecret);
+                })
+        }
+    }, [axiosSecure, totalPrice])
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+
+        if (!stripe || !elements) {
+            return;
+        }
+
+        const card = elements.getElement(CardElement);
+
+        if (!card) {
+            return;
+        }
+
+        const { error, paymentMethod } = await stripe.createPaymentMethod({
+            type: 'card',
+            card,
+        })
+
+        if (error) {
+            console.log('[error]', error);
+        } else {
+            console.log('[PaymentMethod]', paymentMethod);
+        }
+
+        const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(clientSecret, {
+            payment_method: {
+                card: card,
+                billing_details: {
+                    email: user?.email || 'anonymous',
+                    name: user?.displayName || 'anonymous'
+                }
+            }
+        })
+
+
+        if (confirmError) {
+            console.log('confirm error')
+        }
+        else {
+            console.log('payment intent', paymentIntent)
+            if (paymentIntent.status === 'succeeded') {
+                console.log('transaction id', paymentIntent.id);
+                setTransactionId(paymentIntent.id);
+
+                const payment = {
+                    email: user.email,
+                    price: totalPrice,
+                    transactionId: paymentIntent.id,
+                    date: new Date(),
+                    propertyId: data._id,
+                    offerStatus: 'pending'
+                }
+
+                const res = await axiosSecure.post('/payments', payment);
+                if (res.data?.paymentResult?.insertedId) {
+                    // const updateOffer = {
+                    //     home_status: 'accepted'
+                    // }
+                    // const res = await publicApi.patch(`/offer_requests/afterPayement/${data._id}`, updateOffer);
+                    // console.log(res);
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Your Payment has been successfully",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    navigate('/dashboard/credit-score')
+                }
+
+            }
+        }
+    }
+    return (
+        <div className='items-center justify-center flex flex-col text-center'>
+            <from onSubmit={handleSubmit} className='flex flex-col'>
+                <p>Please Enter you Payment Information</p>
+                <div className="flex flex-col justify-between">
+                    <CardElement className='max-w-sm'>
+
+                    </CardElement>
+                    <button className="btn btn-sm max-w-sm btn-primary my-4" type="submit" disabled={!stripe}>
+                        Pay
+                    </button>
+                </div>
+            </from>
         </div>
     );
 };

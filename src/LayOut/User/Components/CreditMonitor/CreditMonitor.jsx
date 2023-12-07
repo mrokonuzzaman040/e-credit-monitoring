@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 
 const CreditMonitor = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
-    const score = 750;
+    const score = 160;
 
     const onSubmit = data => {
         console.log(data);

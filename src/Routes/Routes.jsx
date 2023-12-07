@@ -29,6 +29,7 @@ import Profile from "../LayOut/User/Components/Settings/Profile/Profile";
 import Contact from "../LayOut/User/Components/Support/Contact/Contact";
 import CreditMonitor from "../LayOut/User/Components/CreditMonitor/CreditMonitor";
 import Payment from "../LayOut/User/Components/Payment/Payment";
+import CheckoutForm from "../LayOut/User/Components/Payment/CheckoutForm";
 
 export const router = createBrowserRouter([
     {
@@ -112,6 +113,10 @@ export const router = createBrowserRouter([
             {
                 path: 'score-monitor',
                 element: <PrivateRoute><CreditMonitor></CreditMonitor></PrivateRoute>,
+            },
+            {
+                path: 'checkout',
+                element: <PrivateRoute><CheckoutForm></CheckoutForm></PrivateRoute>
             },
             {
                 path: 'paymentHistory',

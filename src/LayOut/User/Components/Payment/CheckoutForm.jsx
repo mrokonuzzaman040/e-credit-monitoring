@@ -94,25 +94,24 @@ const CheckoutForm = () => {
                         showConfirmButton: false,
                         timer: 1500
                     });
-                    navigate('/dashboard/credit-score')
+                    navigate('/dashboard/boughtPropertys')
                 }
 
             }
         }
     }
-    return (
-        <div className='items-center justify-center flex flex-col text-center'>
-            <from onSubmit={handleSubmit} className='flex flex-col'>
-                <p>Please Enter you Payment Information</p>
-                <div className="flex flex-col justify-between">
-                    <CardElement className='max-w-sm'>
 
-                    </CardElement>
-                    <button className="btn btn-sm max-w-sm btn-primary my-4" type="submit" disabled={!stripe}>
-                        Pay
-                    </button>
-                </div>
-            </from>
+    return (
+        <div className='flex flex-col text-center'>
+            <p>Please Enter you Payment Information</p>
+            <form onSubmit={handleSubmit} className='flex flex-col'>
+                <p className="">Please enter your payment information</p>
+                <CardElement className='bg-green-300 p-10'>
+                </CardElement>
+                <button className="btn btn-sm btn-primary my-4" type="submit" disabled={!stripe}>
+                    Pay
+                </button>
+            </form>
         </div>
     );
 };

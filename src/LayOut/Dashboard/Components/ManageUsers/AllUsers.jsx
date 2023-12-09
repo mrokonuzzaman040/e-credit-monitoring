@@ -49,8 +49,6 @@ const AllUsers = () => {
         });
     }
 
-    console.log(users);
-
     const handleDeleteUser = user => {
         Swal.fire({
             title: "Are you sure?",

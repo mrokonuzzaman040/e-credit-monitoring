@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 import { useNavigate } from 'react-router-dom';
 import useAuth from '../../../../hooks/useAuth';
+import Swal from 'sweetalert2';
 
 const CheckoutForm = () => {
     const stripe = useStripe();
@@ -79,7 +80,8 @@ const CheckoutForm = () => {
                 }
 
                 const res = await axiosSecure.post('/payments', payment);
-                if (res.data?.paymentResult?.insertedId) {
+                // console.log(res.data.paymentResult.insertedId);
+                if (res?.data?.paymentResult?.insertedId) {
                     // const updateOffer = {
                     //     home_status: 'accepted'
                     // }
@@ -92,7 +94,7 @@ const CheckoutForm = () => {
                         showConfirmButton: false,
                         timer: 1500
                     });
-                    navigate('/dashboard/boughtPropertys')
+                    navigate('/dashboard/score-monitor')
                 }
 
             }

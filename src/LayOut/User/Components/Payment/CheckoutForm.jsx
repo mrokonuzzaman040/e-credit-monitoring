@@ -67,7 +67,7 @@ const CheckoutForm = () => {
         }
         else {
             console.log('payment intent', paymentIntent)
-            if (paymentIntent.status === 'succeeded') {
+            if (paymentIntent.status === "succeeded") {
                 console.log('transaction id', paymentIntent.id);
                 setTransactionId(paymentIntent.id);
 
@@ -76,8 +76,6 @@ const CheckoutForm = () => {
                     price: totalPrice,
                     transactionId: paymentIntent.id,
                     date: new Date(),
-                    propertyId: data._id,
-                    offerStatus: 'pending'
                 }
 
                 const res = await axiosSecure.post('/payments', payment);

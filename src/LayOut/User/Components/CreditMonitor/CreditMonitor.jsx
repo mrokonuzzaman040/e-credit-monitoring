@@ -1,21 +1,42 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactStoreIndicator from 'react-score-indicator'
 import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
+import useAxiosSecure from '../../../../hooks/useAxiosSecure';
+import { useQuery } from '@tanstack/react-query';
+import useAuth from '../../../../hooks/useAuth';
 
 const CreditMonitor = () => {
+    const { user } = useAuth();
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const [paymentStatus, setPaymentStatus] = useState(false);
+    const axiosSecure = useAxiosSecure();
     const score = 160;
-    const paid = false;
     const onSubmit = data => {
         console.log(data);
         reset();
     };
 
-    const checkPayment = () => {
-        
-    }
+    const { data: payments = [] } = useQuery({
+        queryKey: ['payments', user.email],
+        queryFn: async () => {
+            const res = await axiosSecure.get(`/payments/${user.email}`);
+            return res.data;
+        },
+    });
 
+    //    convert the payments.date to UTC
+    const paymentsInUTC = payments.map((payment) => ({
+        ...payment,
+        date: new Date(payment.date).toUTCString(),
+    }));
+
+    //   check if the user has paid and he have the valid subscription
+    useEffect(() => {
+        if (paymentsInUTC.length > 0) {
+            setPaymentStatus(true);
+        }
+    }, [paymentsInUTC.length]);
 
     return (
         <div>
@@ -157,7 +178,7 @@ const CreditMonitor = () => {
                     <div className="flex flex-wrap -mx-3 mb-2">
                         <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
                             {
-                                paid ? <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                                paymentStatus ? <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
                                     Submit
                                 </button> : <Link to={'/dashboard/make-payment'} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
                                     Pay

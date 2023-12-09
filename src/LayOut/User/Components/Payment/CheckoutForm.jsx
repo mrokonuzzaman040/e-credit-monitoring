@@ -16,7 +16,7 @@ const CheckoutForm = () => {
     const navigate = useNavigate();
     const { user } = useAuth();
 
-    const totalPrice = 25.49;
+    const totalPrice = 29.95;
 
     useEffect(() => {
         if (totalPrice > 0) {

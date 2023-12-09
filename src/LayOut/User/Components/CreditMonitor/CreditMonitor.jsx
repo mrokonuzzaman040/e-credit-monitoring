@@ -6,13 +6,17 @@ import { Link } from 'react-router-dom';
 const CreditMonitor = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const score = 160;
-
-    const [paid, setPaid] = React.useState(false);
-
+    const paid = false;
     const onSubmit = data => {
         console.log(data);
         reset();
     };
+
+    const checkPayment = () => {
+        
+    }
+
+
     return (
         <div>
             <div className="items-center text-center mt-10">

@@ -64,7 +64,13 @@ const CheckoutForm = () => {
 
 
         if (confirmError) {
-            console.log('confirm error')
+            Swal.fire({
+                position: "top-end",
+                icon: "error",
+                title: "Your Payment has been failed",
+                showConfirmButton: false,
+                timer: 1500
+            });
         }
         else {
             console.log('payment intent', paymentIntent)
@@ -77,16 +83,10 @@ const CheckoutForm = () => {
                     price: totalPrice,
                     transactionId: paymentIntent.id,
                     date: new Date(),
+                    status: 'success'
                 }
-
                 const res = await axiosSecure.post('/payments', payment);
-                // console.log(res.data.paymentResult.insertedId);
                 if (res?.data?.paymentResult?.insertedId) {
-                    // const updateOffer = {
-                    //     home_status: 'accepted'
-                    // }
-                    // const res = await publicApi.patch(`/offer_requests/afterPayement/${data._id}`, updateOffer);
-                    // console.log(res);
                     Swal.fire({
                         position: "top-end",
                         icon: "success",
@@ -96,7 +96,6 @@ const CheckoutForm = () => {
                     });
                     navigate('/dashboard/score-monitor')
                 }
-
             }
         }
     }

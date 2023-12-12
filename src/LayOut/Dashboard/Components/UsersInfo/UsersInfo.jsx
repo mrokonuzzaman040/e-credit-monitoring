@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { CSVLink } from "react-csv";
 
+
 const UsersInfo = () => {
     const axiosSecure = useAxiosSecure();
     const { data: users = [], refetch } = useQuery({
@@ -41,9 +42,9 @@ const UsersInfo = () => {
         setCurrentPage(1);
     };
 
-    const filteredUsers = users.filter((user) =>
-        user.first_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        user.last_name.toLowerCase().includes(searchTerm.toLowerCase())
+    const filteredUsers = (users ?? []).filter((user) =>
+        (user.first_name && user.first_name.toLowerCase().includes(searchTerm.toLowerCase())) ||
+        (user.last_name && user.last_name.toLowerCase().includes(searchTerm.toLowerCase()))
     );
 
     const sortedUsers = sortColumn

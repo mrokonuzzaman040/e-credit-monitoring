@@ -6,7 +6,7 @@ import useAuth from "../../hooks/useAuth";
 import useAdmin from "../../hooks/useAdmin";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 // Icons
-import { FaAlignLeft, FaRegUser, FaCalendar, FaEnvelope, FaHome, FaList, FaSearch, FaShoppingCart, FaUsers, FaAd } from "react-icons/fa";
+import { FaAlignLeft, FaRegUser, FaCalendar, FaEnvelope, FaHome, FaList, FaMailchimp, FaSearch, FaShoppingCart, FaUsers, FaAd } from "react-icons/fa";
 import { MdReviews, MdAddBox, MdOutlinePersonPin } from "react-icons/md";
 
 
@@ -68,6 +68,11 @@ const Dashboard = () => {
                                     <NavLink className={({ isActive, isPending }) => isActive ? 'border-b-4 border-indigo-500' : 'hover:border-b-4 hover:border-indigo-500'} to="/dashboard/addReviews">
                                         <MdAddBox></MdAddBox >
                                         Add Review</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink className={({ isActive, isPending }) => isActive ? 'border-b-4 border-indigo-500' : 'hover:border-b-4 hover:border-indigo-500'} to="/dashboard/customerSuport">
+                                        <FaMailchimp></FaMailchimp >
+                                        Customer Support</NavLink>
                                 </li>
                                 <li>
                                     <NavLink className={({ isActive, isPending }) => isActive ? 'border-b-4 border-indigo-500' : 'hover:border-b-4 hover:border-indigo-500'} to="/dashboard/manageReviews">

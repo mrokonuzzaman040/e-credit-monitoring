@@ -1,6 +1,9 @@
 import React from 'react';
 import useAuth from '../../../hooks/useAuth';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const CustomerSupport = () => {
     const { user } = useAuth();
@@ -14,6 +17,7 @@ const CustomerSupport = () => {
         const details = e.target.details.value;
         const status = 'pending';
         const isUser = user ? true : false;
+        const created_at = new Date().toLocaleString();
 
         const data = {
             name,
@@ -21,16 +25,16 @@ const CustomerSupport = () => {
             phone,
             details,
             status,
-            isUser
+            isUser,
+            created_at
         }
 
         axiosPublic.post('/contact', data)
             .then(res => {
-                console.log(res.data);
-                e.target.reset();
+                toast.success('Your message has been sent successfully')
             })
             .catch(error => {
-                console.log(error);
+                toast.error('Something went wrong')
             })
     }
 
@@ -1023,6 +1027,7 @@ const CustomerSupport = () => {
                     </div>
                 </div>
             </section>
+            <ToastContainer />
         </div>
     );
 };

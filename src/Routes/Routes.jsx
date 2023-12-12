@@ -31,6 +31,7 @@ import CreditMonitor from "../LayOut/User/Components/CreditMonitor/CreditMonitor
 import Payment from "../LayOut/User/Components/Payment/Payment";
 import CheckoutForm from "../LayOut/User/Components/Payment/CheckoutForm";
 import CustomerSupport from "../LayOut/Home/CustomerSupport/CustomerSupport";
+import ManageContact from "../LayOut/Dashboard/Components/ManageContact/ManageContact";
 
 export const router = createBrowserRouter([
     {
@@ -92,6 +93,10 @@ export const router = createBrowserRouter([
             {
                 path: 'manageReviews',
                 element: <AdminRoute><ManageReview></ManageReview></AdminRoute>,
+            },
+            {
+                path: 'customerSuport',
+                element: <AdminRoute><ManageContact></ManageContact></AdminRoute>,
             },
             {
                 path: 'editReviews/:id',

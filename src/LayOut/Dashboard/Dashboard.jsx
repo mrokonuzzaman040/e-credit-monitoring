@@ -8,6 +8,11 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 // Icons
 import { FaAlignLeft, FaRegUser, FaCalendar, FaEnvelope, FaHome, FaList, FaMailchimp, FaSearch, FaShoppingCart, FaUsers, FaAd } from "react-icons/fa";
 import { MdReviews, MdAddBox, MdOutlinePersonPin } from "react-icons/md";
+import { IoIosLogOut } from "react-icons/io";
+import { CiSettings } from "react-icons/ci";
+
+
+
 
 
 const Dashboard = () => {
@@ -141,16 +146,18 @@ const Dashboard = () => {
                             </li>
                         </div>
 
-                        <div className="">
+                        <div className="flex flex-col gap-2">
                             <li>
                                 <NavLink to="/dashboard/settings">
-                                    <MdOutlinePersonPin></MdOutlinePersonPin>
+                                    <CiSettings></CiSettings>
                                     Settings</NavLink>
                             </li>
                             <li>
-                                {/* <NavLink to={'#'}> */}
-                                <button className="bg-wite border-4 border-red-600 rounded" onClick={handleLogOut} >Logout</button>
-                                {/* </NavLink> */}
+                                <Link className="bg-red-300" onClick={handleLogOut}>
+                                    <IoIosLogOut></IoIosLogOut>
+                                    Logout
+                                </Link>
+
                             </li>
                         </div>
                     </div>

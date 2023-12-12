@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import css from '../Review/card.css'
 import useAxiosPublic from '../../../../hooks/useAxiosPublic';
 import { useQuery } from '@tanstack/react-query';
 import Swal from 'sweetalert2';

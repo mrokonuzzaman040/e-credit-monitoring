@@ -54,33 +54,33 @@ const Dashboard = () => {
             </div>
             <div className="drawer-side">
                 <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
-                <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
+                <ul className="menu p-4 w-80 min-h-full flex flex-col justify-between bg-base-200 text-base-content">
                     {/* admin nav links */}
-                    <div className="">
+                    <div className="flex flex-col gap-3">
                         {
                             isAdmin ? <>
                                 <li>
-                                    <NavLink to="/dashboard/adminHome">
+                                    <NavLink className={({ isActive, isPending }) => isActive ? 'border-b-4 border-indigo-500' : 'hover:border-b-4 hover:border-indigo-500'} to="/dashboard/adminHome">
                                         <FaHome></FaHome>
                                         Admin Home</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to="/dashboard/addReviews">
+                                    <NavLink className={({ isActive, isPending }) => isActive ? 'border-b-4 border-indigo-500' : 'hover:border-b-4 hover:border-indigo-500'} to="/dashboard/addReviews">
                                         <MdAddBox></MdAddBox >
                                         Add Review</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to="/dashboard/manageReviews">
+                                    <NavLink className={({ isActive, isPending }) => isActive ? 'border-b-4 border-indigo-500' : 'hover:border-b-4 hover:border-indigo-500'} to="/dashboard/manageReviews">
                                         <MdReviews></MdReviews>
                                         Manage Reviews</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to="/dashboard/userInfos">
+                                    <NavLink className={({ isActive, isPending }) => isActive ? 'border-b-4 border-indigo-500' : 'hover:border-b-4 hover:border-indigo-500'} to="/dashboard/userInfos">
                                         <FaRegUser></FaRegUser>
                                         Member Info</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to="/dashboard/allUsers">
+                                    <NavLink className={({ isActive, isPending }) => isActive ? 'border-b-4 border-indigo-500' : 'hover:border-b-4 hover:border-indigo-500'} to="/dashboard/allUsers">
                                         <FaUsers></FaUsers>
                                         All Members</NavLink>
                                 </li>
@@ -89,27 +89,27 @@ const Dashboard = () => {
                                 :
                                 <>
                                     <li>
-                                        <NavLink to="/dashboard/userHome">
+                                        <NavLink className={({ isActive, isPending }) => isActive ? 'border-b-4 border-indigo-500' : 'hover:border-b-4 hover:border-indigo-500'} to="/dashboard/userHome">
                                             <FaHome></FaHome>
                                             Home</NavLink>
                                     </li>
                                     <li>
-                                        <NavLink to="/dashboard/credit-score">
+                                        <NavLink className={({ isActive, isPending }) => isActive ? 'border-b-4 border-indigo-500' : 'hover:border-b-4 hover:border-indigo-500'} to="/dashboard/credit-score">
                                             <FaCalendar></FaCalendar>
                                             Check Score</NavLink>
                                     </li>
                                     <li>
-                                        <NavLink to="/dashboard/score-monitor">
+                                        <NavLink className={({ isActive, isPending }) => isActive ? 'border-b-4 border-indigo-500' : 'hover:border-b-4 hover:border-indigo-500'} to="/dashboard/score-monitor">
                                             <FaShoppingCart></FaShoppingCart>
                                             Score Monitor</NavLink>
                                     </li>
                                     <li>
-                                        <NavLink to="/dashboard/paymentHistory">
+                                        <NavLink className={({ isActive, isPending }) => isActive ? 'border-b-4 border-indigo-500' : 'hover:border-b-4 hover:border-indigo-500'} to="/dashboard/paymentHistory">
                                             <FaAd></FaAd>
                                             Payment History</NavLink>
                                     </li>
                                     <li>
-                                        <NavLink to="/dashboard/scoretHistory">
+                                        <NavLink className={({ isActive, isPending }) => isActive ? 'border-b-4 border-indigo-500' : 'hover:border-b-4 hover:border-indigo-500'} to="/dashboard/scoretHistory">
                                             <FaList></FaList>
                                             Report History</NavLink>
                                     </li>
@@ -117,7 +117,6 @@ const Dashboard = () => {
                         }
                     </div>
                     {/* shared nav links */}
-                    <div className="divider"></div>
                     <div className="grid grid-cols-1 justify-between">
                         <div className="">
                             <li>
@@ -144,9 +143,9 @@ const Dashboard = () => {
                                     Settings</NavLink>
                             </li>
                             <li>
-                                <Link to={'#'}>
-                                    <button onClick={handleLogOut} >Logout</button>
-                                </Link>
+                                {/* <NavLink to={'#'}> */}
+                                <button className="bg-wite border-4 border-red-600 rounded" onClick={handleLogOut} >Logout</button>
+                                {/* </NavLink> */}
                             </li>
                         </div>
                     </div>

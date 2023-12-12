@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
-import user from "../../../../../public/user.png";
+import user from "../../../../assets/user.png";
 
 
 // icons

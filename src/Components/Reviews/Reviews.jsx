@@ -3,7 +3,7 @@ import { useState } from "react";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import useAuth from "../../hooks/useAuth";
 
-import user_img from '../../../public/user.png'
+import user_img from '../../assets/user.png'
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";

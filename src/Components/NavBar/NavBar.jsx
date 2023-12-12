@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import logo from '../../assets/Logo.png'
 import { FaRegUserCircle } from "react-icons/fa";
 import useAuth from '../../hooks/useAuth';
@@ -8,7 +8,7 @@ const NavBar = () => {
         <li>
             <Link to={'/'}>Product</Link>
         </li>
-        <li><Link to={'/'}>Resources</Link></li>
+        <li><NavLink to={'/'}>Resources</NavLink></li>
         <li><Link to={'/'}>Services</Link></li>
         <li><Link to={'/'}>Insights</Link></li>
         <li><Link to={'/'}>Consumer Support</Link></li>

@@ -6,12 +6,12 @@ const NavBar = () => {
     const { user } = useAuth();
     const links = <>
         <li>
-            <Link to={'/'}>Product</Link>
+            <NavLink className={({ isActive, isPending }) => isActive ? 'border-b-4 border-indigo-500' : ''} to={'/'}>Product</NavLink>
         </li>
-        <li><NavLink to={'/'}>Resources</NavLink></li>
+        <li><NavLink className={({ isActive, isPending }) => isActive ? 'border-b-4 border-indigo-500' : 'hover:border-b-4 hover:border-indigo-500'} to={'/resourse'}>Resources</NavLink></li>
         <li><Link to={'/'}>Services</Link></li>
         <li><Link to={'/'}>Insights</Link></li>
-        <li><Link to={'/'}>Consumer Support</Link></li>
+        <li><Link to={'/customerSupport'}>Consumer Support</Link></li>
         <li><Link to={'/'}>About</Link></li>
         <li>{user ? <Link to={'/dashboard'}><FaRegUserCircle /> Dashboard</Link> : <Link to={'/login'}><FaRegUserCircle /> Member Login</Link>}</li>
     </>

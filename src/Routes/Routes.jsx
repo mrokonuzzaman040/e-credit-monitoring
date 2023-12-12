@@ -30,6 +30,7 @@ import Contact from "../LayOut/User/Components/Support/Contact/Contact";
 import CreditMonitor from "../LayOut/User/Components/CreditMonitor/CreditMonitor";
 import Payment from "../LayOut/User/Components/Payment/Payment";
 import CheckoutForm from "../LayOut/User/Components/Payment/CheckoutForm";
+import CustomerSupport from "../LayOut/Home/CustomerSupport/CustomerSupport";
 
 export const router = createBrowserRouter([
     {
@@ -55,6 +56,10 @@ export const router = createBrowserRouter([
             {
                 path: 'register/step3',
                 element: <Step3></Step3>
+            },
+            {
+                path: 'customerSupport',
+                element: <CustomerSupport></CustomerSupport>,
             },
             {
                 // error page

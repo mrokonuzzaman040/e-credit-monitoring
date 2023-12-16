@@ -32,6 +32,7 @@ const AddReview = () => {
         const name = data.name;
         const details = data.details;
         const rating = data.rating;
+        
         try {
             const res = await axiosPublic.post('/reviews', { name, details, rating, image });
             if (res.status === 200) {

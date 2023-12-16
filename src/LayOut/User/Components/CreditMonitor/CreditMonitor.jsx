@@ -11,7 +11,14 @@ const CreditMonitor = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const [paymentStatus, setPaymentStatus] = useState(false);
     const axiosSecure = useAxiosSecure();
-    const score = 160;
+
+    // create a random value genator for the score in 400 to 850
+    const randomScore = () => {
+        return Math.floor(Math.random() * (850 - 400 + 1) + 400);
+    };
+
+    const score = randomScore();
+    
     const onSubmit = data => {
         console.log(data);
         reset();

@@ -19,11 +19,6 @@ const AuthProvider = ({ children }) => {
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
-    const forgetPassword = (email) => {
-        setLoading(true);
-        return sendPasswordResetEmail(auth, email);
-    }
-
     const signIn = (email, password) => {
         setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
@@ -69,6 +64,10 @@ const AuthProvider = ({ children }) => {
             return unsubscribe();
         }
     }, [axiosPublic])
+
+    const forgetPassword = (email) => {
+        return sendPasswordResetEmail(auth, email);
+    }
 
     const authInfo = {
         user,

@@ -1,46 +1,73 @@
-import React from 'react';
-import AuthProvider from '../../Provider/AuthProvider/AuthProvider';
+import React, { useState } from 'react';
+import { AuthContext } from '../../Provider/AuthProvider/AuthProvider';
+import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 
 const ForgetPassword = () => {
-    const { forgetPassword } = AuthProvider();
+    const navigate = useNavigate();
+    const [email, setEmail] = useState('');
+    const { forgetPassword } = React.useContext(AuthContext);
 
-    const handleForgetPassword = (e) => {
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value);
+    };
+
+    const handleSubmit = (e) => {
         e.preventDefault();
-        const email = e.target.email.value;
+
         forgetPassword(email)
-            .then(res => {
-                console.log(res);
+            .then(() => {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success',
+                    text: 'Please check your email to reset password',
+                });
+                navigate('/login');
             })
-            .catch(err => {
-                console.log(err);
-            })
-    }
+            .catch((err) => {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: err.message,
+                });
+            });
+    };
 
     return (
         <div>
-            <div className="text-center">
-                <h1>Forget Password</h1>
+            <div className="text-center text-2xl font-light mt-3">
+                <h2>Forget Password</h2>
             </div>
             <div className="">
-                <form className="w-full max-w-lg mx-auto my-10">
+                <form className="w-full max-w-lg mx-auto mt-5" onSubmit={handleSubmit}>
                     <div className="flex flex-wrap -mx-3 mb-6">
                         <div className="w-full px-3">
-                            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >
+                            <label
+                                className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                                htmlFor="grid-password"
+                            >
                                 Email
                             </label>
-                            <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                                type="email" name='email' placeholder="Enter your email" />
+                            <input
+                                className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+                                id="grid-password"
+                                name="email"
+                                type="email"
+                                placeholder="Enter your email"
+                                value={email}
+                                onChange={handleEmailChange}
+                            />
                         </div>
                     </div>
-                    <div className="flex flex-wrap -mx-3 mb-2">
-                        <div className="w-full px-3">
-                            <button onSubmit={handleForgetPassword()} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                                Send Email
-                            </button>
-                        </div>
+                    <div className="flex items-center justify-between">
+                        <button
+                            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                            type="submit"
+                        >
+                            Send
+                        </button>
                     </div>
                 </form>
-
             </div>
         </div>
     );

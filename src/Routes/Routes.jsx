@@ -32,6 +32,11 @@ import Payment from "../LayOut/User/Components/Payment/Payment";
 import CheckoutForm from "../LayOut/User/Components/Payment/CheckoutForm";
 import CustomerSupport from "../LayOut/Home/CustomerSupport/CustomerSupport";
 import ManageContact from "../LayOut/Dashboard/Components/ManageContact/ManageContact";
+import About from "../LayOut/Home/About/About";
+import Insights from "../LayOut/Home/Insights/Insights";
+import Product from "../LayOut/Home/Product/Product";
+import Resourse from "../LayOut/Home/Resourse/Resourse";
+import Service from "../LayOut/Home/Service/Service";
 
 export const router = createBrowserRouter([
     {
@@ -61,6 +66,26 @@ export const router = createBrowserRouter([
             {
                 path: 'customerSupport',
                 element: <CustomerSupport></CustomerSupport>,
+            },
+            {
+                path: 'about',
+                element: <About></About>,
+            },
+            {
+                path: 'insights',
+                element: <Insights></Insights>,
+            },
+            {
+                path: 'product',
+                element: <Product></Product>,
+            },
+            {
+                path: 'resourse',
+                element: <Resourse></Resourse>,
+            },
+            {
+                path: 'service',
+                element: <Service></Service>,
             },
             {
                 // error page

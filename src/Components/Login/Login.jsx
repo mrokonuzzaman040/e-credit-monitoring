@@ -84,16 +84,20 @@ const Login = () => {
                                         </span>
                                     </button>
                                 </form>
-                                <p className="mt-6 text-xs text-gray-600 text-center">
-                                    I agree to abide by templatana's
-                                    <Link to={'/'} className="border-b border-gray-500 border-dotted">
-                                        Terms of Service
-                                    </Link>
-                                    and its
-                                    <Link to={'/'} className="border-b border-gray-500 border-dotted">
-                                        Privacy Policy
-                                    </Link>
-                                </p>
+                                <div className="mt-2">
+                                    <Link className='text-sm text-indigo-500 ' to={'/forgetPassword'}>Forget Password?</Link>
+                                    <p className="mt-6 text-xs text-gray-600 text-center">
+                                        I agree to abide by templatana's
+                                        <Link to={'/'} className="border-b border-gray-500 border-dotted">
+                                            Terms of Service
+                                        </Link>
+                                        and its
+                                        <Link to={'/'} className="border-b border-gray-500 border-dotted">
+                                            Privacy Policy
+                                        </Link>
+                                    </p>
+                                </div>
+
                             </div>
                         </div>
                     </div>

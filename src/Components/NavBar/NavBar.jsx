@@ -6,18 +6,30 @@ const NavBar = () => {
     const { user } = useAuth();
     const links = <>
         <li>
-            <NavLink className={({ isActive, isPending }) => isActive ? 'border-b-4 border-indigo-500' : ''} to={'/'}>Home</NavLink>
+            <NavLink className={({ isActive, isPending }) => isActive ? 'border-b-4 border-indigo-500' : 'hover:border-b-4 hover:border-indigo-500'} to={'/'}>Home</NavLink>
 
         </li>
         <li>
-            <NavLink className={({ isActive, isPending }) => isActive ? 'border-b-4 border-indigo-500' : ''} to={'/product'}>Product</NavLink>
+            <NavLink className={({ isActive, isPending }) => isActive ? 'border-b-4 border-indigo-500' : 'hover:border-b-4 hover:border-indigo-500'} to={'/product'}>Product</NavLink>
         </li>
-        <li><NavLink className={({ isActive, isPending }) => isActive ? 'border-b-4 border-indigo-500' : 'hover:border-b-4 hover:border-indigo-500'} to={'/resourse'}>Resources</NavLink></li>
-        <li><Link to={'/service'}>Services</Link></li>
-        <li><Link to={'/insights'}>Insights</Link></li>
-        <li><Link to={'/customerSupport'}>Consumer Support</Link></li>
-        <li><Link to={'/about'}>About</Link></li>
-        <li>{user ? <Link to={'/dashboard'}><FaRegUserCircle /> Dashboard</Link> : <Link to={'/login'}><FaRegUserCircle /> Member Login</Link>}</li>
+        <li>
+            <NavLink className={({ isActive, isPending }) => isActive ? 'border-b-4 border-indigo-500' : 'hover:border-b-4 hover:border-indigo-500'} to={'/resourse'}>Resources</NavLink>
+        </li>
+        <li>
+            <NavLink className={({ isActive, isPending }) => isActive ? 'border-b-4 border-indigo-500' : 'hover:border-b-4 hover:border-indigo-500'} to={'/service'}>Services</NavLink>
+        </li>
+        <li>
+            <NavLink className={({ isActive, isPending }) => isActive ? 'border-b-4 border-indigo-500' : 'hover:border-b-4 hover:border-indigo-500'} to={'/insights'}>Insights</NavLink>
+        </li>
+        <li>
+            <NavLink className={({ isActive, isPending }) => isActive ? 'border-b-4 border-indigo-500' : 'hover:border-b-4 hover:border-indigo-500'} to={'/customerSupport'}>Consumer Support</NavLink>
+        </li>
+        <li>
+            <NavLink className={({ isActive, isPending }) => isActive ? 'border-b-4 border-indigo-500' : 'hover:border-b-4 hover:border-indigo-500'} to={'/about'}>About</NavLink>
+        </li>
+        <li>
+            {user ? <NavLink className={({ isActive, isPending }) => isActive ? 'border-b-4 border-indigo-500' : 'hover:border-b-4 hover:border-indigo-500'} to={'/dashboard'}><FaRegUserCircle /> Dashboard</NavLink> : <NavLink to={'/login'}><FaRegUserCircle /> Member Login</NavLink>}
+        </li>
     </>
     return (
         <div className="navbar shadow-xl py-4 px-6">
@@ -39,7 +51,7 @@ const NavBar = () => {
                     </div>
 
                 </div>
-                <Link><img className='h-[50px] invisible lg:visible' src={logo} alt="" /></Link>
+                <NavLink><img className='h-[50px] invisible lg:visible' src={logo} alt="" /></NavLink>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">

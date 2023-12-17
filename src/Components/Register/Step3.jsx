@@ -5,14 +5,15 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import useAxiosPublic from '../../hooks/useAxiosPublic';
 import useAuth from '../../hooks/useAuth';
+import AuthProvider from '../../Provider/AuthProvider/AuthProvider';
 
 const Step3 = () => {
+
     const navigate = useNavigate();
     const { user } = useAuth();
     const location = useLocation();
     const alldata = location.state;
     const axiosPublic = useAxiosPublic();
-
     console.log(user);
 
     useEffect(() => {
@@ -41,7 +42,7 @@ const Step3 = () => {
             toast.success('Registration successfull');
             axiosPublic.post('/users', finalData)
                 .then(res => {
-                    navigate('/dashboard');
+                    navigate('/login');
                 })
                 .catch(err => {
                     console.log(err);

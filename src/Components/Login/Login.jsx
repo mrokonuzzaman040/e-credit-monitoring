@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo.png';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../Provider/AuthProvider/AuthProvider';
+import useEmailValidityCheck from '../../hooks/useEmailValidityCheck';
 
 
 const Login = () => {
@@ -10,6 +11,7 @@ const Login = () => {
     const navigate = useNavigate();
 
     const handellogin = (event) => {
+        verifyEmail();
         event.preventDefault();
         const form = event.target;
 

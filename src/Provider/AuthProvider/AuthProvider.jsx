@@ -1,6 +1,6 @@
 import React from 'react';
 import { createContext, useEffect, useState } from "react";
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, sendEmailVerification, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
 import { app } from '../../Firebase/firebase';
 import useAxiosPublic from '../../hooks/useAxiosPublic';
 
@@ -22,6 +22,10 @@ const AuthProvider = ({ children }) => {
     const signIn = (email, password) => {
         setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
+    }
+
+    const verifyEmail = () => {
+        return sendEmailVerification(auth.currentUser);
     }
 
     const logOut = () => {
@@ -67,6 +71,7 @@ const AuthProvider = ({ children }) => {
         signIn,
         logOut,
         updateUserProfile,
+        verifyEmail,
     }
 
     return (

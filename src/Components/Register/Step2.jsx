@@ -22,7 +22,7 @@ const Step2 = () => {
         }
     }, [location]);
 
-    const { createUser, updateUserProfile } = useContext(AuthContext)
+    const { createUser, updateUserProfile, verifyEmail } = useContext(AuthContext)
     const email = stepOneData.email;
 
     console.log(stepOneData);
@@ -65,6 +65,8 @@ const Step2 = () => {
             // Create user with email and password
             createUser(email, create_password)
                 .then(res => {
+                    // send email verification link
+                    verifyEmail();
                     updateUserProfile(displayName)
                     navigate('/register/step3', { state: stepTwoData });
                 })

@@ -10,10 +10,7 @@ import { FaAlignLeft, FaRegUser, FaCalendar, FaEnvelope, FaHome, FaList, FaMailc
 import { MdReviews, MdAddBox, MdOutlinePersonPin } from "react-icons/md";
 import { IoIosLogOut } from "react-icons/io";
 import { CiSettings } from "react-icons/ci";
-
-
-
-
+import Swal from "sweetalert2";
 
 const Dashboard = () => {
     const { user, logOut } = useAuth();
@@ -39,6 +36,8 @@ const Dashboard = () => {
 
         fetchData();
     }, [axiosSecure, user.email]);
+
+    console.log(user);
 
     return (
         <div className="drawer lg:drawer-open">

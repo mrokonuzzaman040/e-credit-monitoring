@@ -71,7 +71,7 @@ const CustomerSupport = () => {
 
     return (
         <div className='grid grid-cols-1 justify-center items-center'>
-            <section className="relative z-10 overflow-hidden bg-white dark:bg-dark lg:py-[120px]">
+            <section className="relative z-0 overflow-hidden bg-white dark:bg-dark lg:py-[120px]">
                 <div className="p-20">
                     <div className="flex flex-wrap">
 

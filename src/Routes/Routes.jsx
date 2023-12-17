@@ -37,6 +37,7 @@ import Insights from "../LayOut/Home/Insights/Insights";
 import Product from "../LayOut/Home/Product/Product";
 import Resourse from "../LayOut/Home/Resourse/Resourse";
 import Service from "../LayOut/Home/Service/Service";
+import ForgetPassword from "../Components/ForgetPassword/ForgetPassword";
 
 export const router = createBrowserRouter([
     {
@@ -91,6 +92,10 @@ export const router = createBrowserRouter([
                 // error page
                 path: '*',
                 element: <ErrorPage></ErrorPage>,
+            },
+            {
+                path: 'forgetPassword',
+                element: <ForgetPassword></ForgetPassword>
             }
         ]
     },

@@ -19,10 +19,10 @@ const AuthProvider = ({ children }) => {
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
-    const resetPassword = (email) => {
+    const forgetPassword = (email) => {
+        setLoading(true);
         return sendPasswordResetEmail(auth, email);
     }
-
 
     const signIn = (email, password) => {
         setLoading(true);
@@ -30,6 +30,7 @@ const AuthProvider = ({ children }) => {
     }
 
     const verifyEmail = () => {
+        setLoading(true);
         return sendEmailVerification(auth.currentUser);
     }
 
@@ -77,7 +78,7 @@ const AuthProvider = ({ children }) => {
         logOut,
         updateUserProfile,
         verifyEmail,
-        resetPassword,
+        forgetPassword,
     }
 
     return (

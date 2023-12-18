@@ -7,7 +7,6 @@ const NavBar = () => {
     const links = <>
         <li>
             <NavLink className={({ isActive, isPending }) => isActive ? 'border-b-4 border-indigo-500' : 'hover:border-b-4 hover:border-indigo-500'} to={'/'}>Home</NavLink>
-
         </li>
         <li>
             <NavLink className={({ isActive, isPending }) => isActive ? 'border-b-4 border-indigo-500' : 'hover:border-b-4 hover:border-indigo-500'} to={'/product'}>Product</NavLink>
@@ -43,6 +42,9 @@ const NavBar = () => {
                         <div className="drawer-side">
                             <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
                             <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
+                                <div className="">
+                                    <NavLink><img className='h-[50px] visible lg:invisible' src={logo} alt="" /></NavLink>
+                                </div>
                                 {
                                     links
                                 }

@@ -17,7 +17,6 @@ import '@smastrom/react-rating/style.css'
 
 const Review = () => {
     const [reviews, setReviews] = useState([]);
-    const { user } = useAuth();
     const axiosPublic = useAxiosPublic();
 
     useEffect(() => {
@@ -33,7 +32,7 @@ const Review = () => {
 
     return (
         <>
-            <section className="my-20">
+            <section className="my-20 min-w-[80vh] max-w-7xl mx-auto mb-8">
                 <Swiper className="mySwiper">
                     {reviews.map(review => (
                         <SwiperSlide key={review._id}>

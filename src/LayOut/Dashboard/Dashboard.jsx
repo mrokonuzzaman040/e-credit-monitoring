@@ -89,13 +89,6 @@ const Dashboard = () => {
             </div>
             <div className="drawer-side">
                 <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
-                <div className="">
-                    <div className="flex justify-between items-center bg-indigo-300 p-4 rounded-lg">
-                        <div className="lg:text-center">
-                            <img src={logo} alt="" />
-                        </div>
-                    </div>
-                </div>
                 <ul className="menu p-2 w-80 min-h-full flex flex-col justify-between bg-base-200 text-base-content">
                     {/* admin nav links */}
                     <div className="flex flex-col gap-2">

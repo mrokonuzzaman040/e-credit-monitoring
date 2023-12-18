@@ -5,7 +5,7 @@ import bannerImg from '../../../assets/b-2.png'
 const Banner = () => {
     return (
         <div className="hero min-h-[80vh] max-w-7xl mx-auto mb-8">
-            <div className="hero-content flex-col md:flex-row lg:flex-row ">
+            <div className="hero-content flex-col md:flex-row ">
                 <div className="text-left lg:w-1/2" data-aos="fade-up" data-aos-duration="1500">
                     <div className="badge badge-ghost mb-6">Personal</div>
                     <p className='text-2xl'>Life can not remain upside-down indefinitely.</p>

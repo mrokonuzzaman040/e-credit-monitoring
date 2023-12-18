@@ -11,6 +11,7 @@ import { MdReviews, MdAddBox, MdOutlinePersonPin } from "react-icons/md";
 import { IoIosLogOut } from "react-icons/io";
 import { CiSettings } from "react-icons/ci";
 import Swal from "sweetalert2";
+import logo from '../../assets/Logo.png'
 
 const Dashboard = () => {
     const { user, logOut } = useAuth();
@@ -49,9 +50,6 @@ const Dashboard = () => {
                         <label htmlFor="my-drawer-2" className="btn items-center justify-center btn-square btn-primary drawer-button"><FaAlignLeft ></FaAlignLeft></label>
                     </div>
                 </div>
-                {/* <div className="mt-4 glass bg-indigo-300 min-h-full rounded-xl p-4">
-                    <Outlet></Outlet>
-                </div> */}
 
                 <div id="advatiser" class="relative py-28 lg:py-32 bg-white">
                     <div className="relative z-0">
@@ -91,6 +89,13 @@ const Dashboard = () => {
             </div>
             <div className="drawer-side">
                 <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
+                <div className="">
+                    <div className="flex justify-between items-center bg-indigo-300 p-4 rounded-lg">
+                        <div className="lg:text-center">
+                            <img src={logo} alt="" />
+                        </div>
+                    </div>
+                </div>
                 <ul className="menu p-2 w-80 min-h-full flex flex-col justify-between bg-base-200 text-base-content">
                     {/* admin nav links */}
                     <div className="flex flex-col gap-2">

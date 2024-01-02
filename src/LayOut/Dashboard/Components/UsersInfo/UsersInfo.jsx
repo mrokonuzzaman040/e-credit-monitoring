@@ -96,7 +96,7 @@ const UsersInfo = () => {
                 />
             </div>
             <table id="example" className="table-auto table table-xs w-full">
-                <thead>
+                <thead className='bg-gray-50'>
                     <tr>
                         <th className="px-4 py-2 cursor-pointer" onClick={() => handleSort("first_name")}>
                             Name {sortColumn === "first_name" && <span>{sortDirection === "asc" ? "▲" : "▼"}</span>}

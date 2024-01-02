@@ -86,7 +86,7 @@ const ManageReview = () => {
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody className='bg-indigo-100'>
                     {reviewData.map((review) => (
                         <tr key={review._id}>
                             <td>{review.name}</td>
